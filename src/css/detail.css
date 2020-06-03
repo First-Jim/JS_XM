@@ -1,0 +1,197 @@
+a {
+    text-decoration: none !important;
+}
+
+//  nav-bar
+.topNav-bar {
+    height: 60px;
+}
+
+.container {
+    width: 1226px;
+    margin: 0 auto;
+    height: 60px;
+}
+
+.container a {
+    color: #616161;
+}
+
+.container a:hover {
+    color: #ff4a00;
+}
+
+.container h2 {
+    float: left;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 60px;
+    color: #424242;
+}
+
+.container .left {
+    float: left;
+    margin-left: 5px;
+    font-size: 12px;
+    margin-top: 21px;
+}
+
+.container .right {
+    float: right;
+    margin: 17px 0;
+}
+
+.container .separator {
+    color: #e0e0e0;
+    margin: 0 10px;
+}
+
+
+//商品详情部分
+
+.mi-detail {
+    padding-top: 30px;
+    overflow: hidden;
+    background-color: pink;
+}
+
+.mi-detail .product-box {}
+
+.img-left {
+    width: 560px;
+    height: 560px;
+    float: left;
+    background-color: #888;
+}
+
+.magnify-glass {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// #spic {
+//     width: 560px;
+//     height: 560px;
+//     border: 1px solid #000;
+//     float: left;
+//     position: relative;
+// }
+
+// #spic img {
+//     width: 560px;
+//     height: 560px;
+// }
+
+// #sf {
+//     width: 50px;
+//     height: 50px;
+//     background: orange;
+//     opacity: 0.3;
+//     position: absolute;
+//     left: 0px;
+//     top: 0px;
+//     visibility: hidden;
+// }
+
+// #bf {
+//     width: 400px;
+//     height: 500px;
+//     border: 1px solid #000;
+//     overflow: hidden;
+//     position: absolute;
+//     left: 410px;
+//     visibility: hidden;
+//     z-index: 100;
+// }
+
+// #bf img {
+//     position: absolute;
+//     left: 0px;
+//     top: 0px;
+// }
+
+// #ulist {
+//     position: absolute;
+//     left: 0px;
+//     top: 430px;
+//     width: 402px;
+//     height: 56px;
+//     overflow: hidden;
+// }
+
+// #ulist a {
+//     float: left;
+//     width: 10px;
+//     height: 54px;
+//     border: 1px solid #ccc;
+//     text-decoration: none;
+//     line-height: 56px;
+//     text-align: center;
+//     background: #fff;
+// }
+
+// #list {
+//     float: left;
+//     margin-left: 18px;
+//     width: 372px;
+//     position: relative;
+// }
+
+// .magnify-glass ul {
+//     list-style: none;
+//     float: left;
+//     position: absolute;
+//     left: 0px;
+//     top: 0px;
+// }
+
+// .magnify-glass ul li {
+//     float: left;
+//     width: 56px;
+//     height: 56px;
+//     padding-right: 6px;
+// }
+
+// .magnify-glass ul li img {
+//     width: 52px;
+//     height: 52px;
+//     border: 1px solid #ccc;
+// }
+
+// .magnify-glass #mask {
+//     width: 220px;
+//     height: 220px;
+//     position: absolute;
+//     z-index: 999;
+//     display: none;
+//     background-color: palegreen;
+// }
+
+// #max {
+//     position: absolute;
+//     width: 445px;
+//     height: 445px;
+//     border: 1px solid #000;
+//     left: 420px;
+//     display: none;
+//     background-size: 820px;
+//     background-repeat: no-repeat;
+//     z-index: 999;
+// }
+
+// #right {
+//     position: absolute;
+//     right: 0px;
+//     top: 0px;
+//     color: #333;
+// }
+
+// #left {
+//     position: absolute;
+//     left: 0px;
+//     top: 0px;
+//     z-index: 2;
+//     color: #fff;
+// }
