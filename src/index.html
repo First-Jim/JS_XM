@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="script/jquery-1.12.4.js"></script>
+    <script src="script/ajax.js"></script>
+    <!-- <script src="js/jquery.animate-colors.js"></script> -->
+</head>
+
+<body>
+    <div class="top"><a href=""></a></div>
+    <div class="head_box">
+        <div id="head_wrap">
+            <div id="head_nav">
+                <a class="head_nav_a">小米商城</a>
+                <span>|</span>
+                <a class="head_nav_a">MIUI</a>
+                <span>|</span>
+                <a class="head_nav_a">IoT</a>
+                <span>|</span>
+                <a class="head_nav_a">云服务</a>
+                <span>|</span>
+                <a class="head_nav_a">金融</a>
+                <span>|</span>
+                <a class="head_nav_a">云服务</a>
+                <span>|</span>
+                <a class="head_nav_a">有品</a>
+                <span>|</span>
+                <a class="head_nav_a">小爱开放平台</a>
+                <span>|</span>
+                <a class="head_nav_a">企业团购</a>
+                <span>|</span>
+                <a class="head_nav_a">资质证照</a>
+                <span>|</span>
+                <a class="head_nav_a">下载app</a>
+                <span>|</span>
+                <a class="head_nav_a" id="Select_Region_but">Select Region</a>
+            </div>
+            <div id="head_right">
+                <div id="head_landing">
+                    <a class="head_nav_a"><a href="login.html">登录</a></a>
+                    <span>|</span>
+                    <a class="head_nav_a"><a href="registry.html">注册</a></a>
+                </div>
+                <div id="head_car">
+                    <a class="head_car_text">购物车（0）</a>
+                    <div id="car_content" style="height: 0px;width:0px ;background-color: #edffc6;z-index: 999">
+                        <a class="car_text"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main_head_box">
+        <div id="menu_wrap">
+            <div id="menu_logo">
+                <a href="" class="logo"></a>
+            </div>
+            <div id="menu_nav">
+                <ul>
+                    <li class="menu_li" control="dmphone">DM手机</li>
+                    <li class="menu_li" control="hmphone">HM手机</li>
+                    <li class="menu_li" control="pingban">平板</li>
+                    <li class="menu_li" control="tv">电视&nbsp;&nbsp;盒子</li>
+                    <li class="menu_li" control="luyou">路由器</li>
+                    <li class="menu_li" control="yingjian">智能硬件</li>
+                    <li><a>服务</a></li>
+                    <li><a>社区</a></li>
+                </ul>
+            </div>
+            <div id="find_wrap">
+                <div id="find_bar">
+                    <input type="text" id="find_input">
+                </div>
+                <ul></ul>
+                <div id="find_but">GO</div>
+            </div>
+        </div>
+    </div>
+    <div id="menu_content_bg" style="height: 0px;">
+        <div id="menu_content_wrap">
+            <ul style="top: 0px;">
+                <li id="dmphone">
+                    <div class="menu_content">
+                        <img src="img/mi4!160x110.jpg">
+                        <p class="menu_content_tit">DM手机4</p>
+                        <p class="menu_content_price">1000元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/minote!160x110.jpg">
+                        <p class="menu_content_tit">DM NOTE标准版</p>
+                        <p class="menu_content_price">1999元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/minotepro!160x110.jpg">
+                        <p class="menu_content_tit">DM NOTE顶配版</p>
+                        <p class="menu_content_price">2999元起</p>
+                    </div>
+                </li>
+                <li id="hmphone">
+                    <div class="menu_content">
+                        <img src="img/hongmi2a!160x110.jpg">
+                        <p class="menu_content_tit">HM 手机2A</p>
+                        <p class="menu_content_price">499元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/hongmi2!160x110.jpg">
+                        <p class="menu_content_tit">HM 手机2</p>
+                        <p class="menu_content_price">599元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/note!160x110.jpg">
+                        <p class="menu_content_tit">HM NOTE</p>
+                        <p class="menu_content_price">699元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/note2!160x110.jpg">
+                        <p class="menu_content_tit">HM NOTE2</p>
+                        <p class="menu_content_price">799元</p>
+                    </div>
+                </li>
+                <li id="pingban">
+                    <div class="menu_content">
+                        <img src="img/mipad16!160x110.jpg">
+                        <p class="menu_content_tit">DM 平板16G</p>
+                        <p class="menu_content_price">1299元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/mipad64!160x110.jpg">
+                        <p class="menu_content_tit">DM 平板64G</p>
+                        <p class="menu_content_price">1499元起</p>
+                    </div>
+                </li>
+                <li id="tv">
+                    <div class="menu_content">
+                        <img src="img/mitv40!160x110.jpg">
+                        <p class="menu_content_tit">DM 电视2&nbsp;40英寸</p>
+                        <p class="menu_content_price">1999元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/mitv48!160x110.jpg">
+                        <p class="menu_content_tit">DM 电视2S&nbsp;48英寸</p>
+                        <p class="menu_content_price">2999元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/mitv49!160x110.jpg">
+                        <p class="menu_content_tit">DM 电视2&nbsp;49英寸</p>
+                        <p class="menu_content_price">3399元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/mitv55!160x110.jpg">
+                        <p class="menu_content_tit">DM 电视2&nbsp;55英寸</p>
+                        <p class="menu_content_price">4499元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/hezimini!160x110.jpg">
+                        <p class="menu_content_tit">DM 盒子MINI版</p>
+                        <p class="menu_content_price">199元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/hezis!160x110.jpg">
+                        <p class="menu_content_tit">DM 盒子增强版</p>
+                        <p class="menu_content_price">299元</p>
+                    </div>
+                </li>
+                <li id="luyou">
+                    <div class="menu_content">
+                        <img src="img/miwifi!160x110.jpg">
+                        <p class="menu_content_tit">全新DM 路由器</p>
+                        <p class="menu_content_price">699元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/miwifimini!160x110.jpg">
+                        <p class="menu_content_tit">DM 路由器&nbsp;MINI</p>
+                        <p class="menu_content_price">129元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/miwifilite!160x110.jpg">
+                        <p class="menu_content_tit">DM 路由器&nbsp;青春版</p>
+                        <p class="menu_content_price">79元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/wifiExtension!160x110.jpg">
+                        <p class="menu_content_tit">DM WIFI放大器</p>
+                        <p class="menu_content_price">39元</p>
+                    </div>
+                </li>
+                <li id="yingjian">
+                    <div class="menu_content">
+                        <img src="http://c1.mifile.cn/f/i/15/goods/nav/scale!160x110.jpg">
+                        <p class="menu_content_tit">体重称</p>
+                        <p class="menu_content_price">99元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/xiaoyi!160x110.jpg">
+                        <p class="menu_content_tit">摄像头</p>
+                        <p class="menu_content_price">129元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/yicamera!160x110.jpg">
+                        <p class="menu_content_tit">运动相机</p>
+                        <p class="menu_content_price">399元起</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/ihealth!160x110.jpg">
+                        <p class="menu_content_tit">血压计</p>
+                        <p class="menu_content_price">199元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/chazuo!160x110.jpg">
+                        <p class="menu_content_tit">智能插座</p>
+                        <p class="menu_content_price">59元</p>
+                    </div>
+                    <span class="menu_content_line"></span>
+                    <div class="menu_content">
+                        <img src="img/smart!160x110.jpg">
+                        <p class="menu_content_tit">查看全部
+                            <br>智能硬件</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="big_banner_wrap">
+        <ul id="banner_menu_wrap">
+            <li class="active">
+                <a>手机&nbsp;平板</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 600px; top: -20px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/minote.jpg"></a><a>DM NOTE</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/mi4.jpg"></a><a>DM 手机4</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/hongmi2.jpg"></a><a>HM 手机2</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/hongmi2a.jpg"></a><a>HM 手机2A</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/note2.jpg"></a><a>HM NOTE2</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/note2.jpg"></a><a>HM NOTE&nbsp;4G双卡</a><span>选购</span></li>
+                    </ul>
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/mipad.jpg"></a><a>DM 平板</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/telcom.jpg"></a><a>电信版</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/heyue.jpg"></a><a>合约机</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/zhongxin.jpg"></a><a>中信特权</a><span>选购</span></li>
+                        <li>
+                            <a><img src="img/compare.jpg"></a><a>对比手机</a><span>选购</span></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>电视&nbsp;盒子</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 600px; top: -62px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/tv40.jpg"></a><a>DM 电视40英寸</a></li>
+                        <li>
+                            <a><img src="img/tv48.jpg"></a><a>DM 电视48英寸</a></li>
+                        <li>
+                            <a><img src="img/tv49.jpg"></a><a>DM 电视49英寸</a></li>
+                        <li>
+                            <a><img src="img/hezis.jpg"></a><a>DM 电视55英寸</a></li>
+                        <li>
+                            <a><img src="img/hezis.jpg"></a><a>DM 盒子</a></li>
+                        <li>
+                            <a><img src="img/hezis.jpg"></a><a>DM 盒子MINI</a></li>
+                    </ul>
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/dianshipeijian.jpg"></a><a>DM 电视配件</a><span>选购</span></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>路由器&nbsp;智能配件</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 900px; top: -104px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/miwifi.jpg"></a><a>DM 路由器</a></li>
+                        <li>
+                            <a><img src="img/miwifilite.jpg"></a><a>DM 路由器&nbsp;青春版</a></li>
+                        <li>
+                            <a><img src="img/air.jpg"></a><a>净化器</a></li>
+                        <li>
+                            <a><img src="img/xiaoyi.jpg"></a><a>摄像机</a></li>
+                        <li>
+                            <a><img src="img/scale.jpg"></a><a>体重称</a></li>
+                        <li>
+                            <a><img src="img/scale.jpg"></a><a>智能插头</a></li>
+                    </ul>
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/miwifimini.jpg"></a><a>DM 路由器MINI</a></li>
+                        <li>
+                            <a><img src="img/wifiExtension.jpg"></a><a>DM WIFI放大器</a></li>
+                        <li>
+                            <a><img src="img/yicamera.jpg"></a><a>运动相机</a></li>
+                        <li>
+                            <a><img src="img/water.jpg"></a><a>净水器</a></li>
+                        <li>
+                            <a><img src="img/ihealth.jpg"></a><a>血压计</a></li>
+                        <li>
+                            <a><img src="img/ihealth.jpg"></a><a>床头灯</a></li>
+                    </ul>
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/zhinengtaozhuang.jpg"></a><a>智能家庭套装</a></li>
+                        <li>
+                            <a><img src="img/shouhuan.jpg"></a><a>DM 手环</a></li>
+                        <li>
+                            <a><img src="img/smart.jpg"></a><a>全部智能硬件</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>移动电源&nbsp;插线板</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 300px; top: -146px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/dianyuan.jpg "></a><a>DM 移动电源</a></li>
+                        <li>
+                            <a><img src="img/powerscript.jpg"></a><a>DM 插线板</a></li>
+                        <li>
+                            <a><img src="img/yidongdianyuan.jpg"></a><a>品牌移动电源</a></li>
+                        <li>
+                            <a><img src="img/dianyuanfujian.jpg"></a><a>移动电源附件</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>耳机&nbsp;音箱</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 300px; top: -188px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/headphone.jpg"></a><a>DM 头戴式耳机</a></li>
+                        <li>
+                            <a><img src="img/huosai.jpg"></a><a>DM 活塞耳机</a></li>
+                        <li>
+                            <a><img src="img/bluetoothheadset.jpg"></a><a>DM 蓝牙耳机</a></li>
+                        <li>
+                            <a><img src="img/erji.jpg"></a><a>品牌耳机</a></li>
+                        <li>
+                            <a><img src="img/yinxiang.jpg"></a><a>音箱</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>电池&nbsp;存储卡</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 300px; top: -230px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/dianchi.jpg"></a><a>电池</a></li>
+                        <li>
+                            <a><img src="img/chongdian.jpg"></a><a>充电器</a></li>
+                        <li>
+                            <a><img src="img/xiancai.jpg"></a><a>线材</a></li>
+                        <li>
+                            <a><img src="img/cunchu.jpg"></a><a>存储卡</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>保护套&nbsp;后盖</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 300px; top: -272px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/baohu.jpg"></a><a>保护套/保护壳</a></li>
+                        <li>
+                            <a><img src="img/hougai.jpg"></a><a>后盖</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>贴膜&nbsp;其它配件</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 600px; top: -314px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/tiemo.jpg"></a><a>贴膜</a></li>
+                        <li>
+                            <a><img src="img/zipaigan.jpg"></a><a>自拍杆</a></li>
+                        <li>
+                            <a><img src="img/zipaigan.jpg"></a><a>蓝牙手柄</a></li>
+                        <li>
+                            <a><img src="img/tizhi.jpg"></a><a>贴纸</a></li>
+                        <li>
+                            <a><img src="img/fangchensai.jpg"></a><a>防尘塞</a></li>
+                        <li>
+                            <a><img src="img/fangchensai.jpg"></a><a>手机支架</a></li>
+                    </ul>
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/raoxian.jpg"></a><a>耳机绕线器</a></li>
+                        <li>
+                            <a><img src="img/wifi.jpg"></a><a>随身WIFI</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>M 兔&nbsp;服装</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 300px; top: -356px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/mitu.jpg"></a><a>M 兔</a></li>
+                        <li>
+                            <a><img src="img/fuzhuang.jpg"></a><a>服装</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a>背包&nbsp;其它周边</a>
+                <a class="banner_menu_i">&gt;</a>
+                <div class="banner_menu_content" style="width: 300px; top: -398px;">
+                    <ul class="banner_menu_content_ul">
+                        <li>
+                            <a><img src="img/bag.jpg"></a><a>背包</a></li>
+                        <li>
+                            <a><img src="img/shubiaodian.jpg"></a><a>DM 鼠标坠</a></li>
+                        <li>
+                            <a><img src="img/zhoubian.jpg"></a><a>生活周边</a></li>
+                        <li>
+                            <a><img src="img/wan.jpg"></a><a>玩酷产品</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div id="big_banner_pic_wrap">
+            <ul id="big_banner_pic">
+                <li><img src="img/mi_banner_01.webp"></li>
+                <li><img src="img/mi_banner_02.webp"></li>
+                <li><img src="img/mi_banner_03.jpg"></li>
+                <li><img src="img/mi_banner_04.webp"></li>
+                <li><img src="img/mi_banner_05.webp"></li>
+            </ul>
+            <ol>
+                <li class="one active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+        </div>
+        <div id="big_banner_change_wrap">
+            <div id="big_banner_change_prev"> &lt;</div>
+            <div id="big_banner_change_next">&gt;</div>
+        </div>
+    </div>
+    <div id="head_other_wrap">
+        <div id="head_other">
+            <ul>
+                <li>
+                    <div id="div1">
+                        <p><img src="" alt=""></p>
+                        <p>小米秒杀</p>
+                    </div>
+                </li>
+                <li>
+                    <div id="div2">
+                        <p><img src="" alt=""></p>
+                        <p>小米秒杀</p>
+                    </div>
+                </li>
+                <li>
+                    <div id="div3">
+                        <p><img src="" alt=""></p>
+                        <p>小米秒杀</p>
+                    </div>
+                </li>
+                <li>
+                    <div id="div4">
+                        <p><img src="" alt=""></p>
+                        <p>小米秒杀</p>
+                    </div>
+                </li>
+                <li>
+                    <div id="div5">
+                        <p><img src="" alt=""></p>
+                        <p>小米秒杀</p>
+                    </div>
+                </li>
+                <li>
+                    <div id="div6">
+                        <p><img src="" alt=""></p>
+                        <p>小米秒杀</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="head_other_ad"><img src="img/T184E_BQWT1RXrhCrK.jpg"></div>
+        <div class="head_other_ad"><img src="img/T184E_BQWT1RXrhCrK.jpg"></div>
+        <div class="head_other_ad"><img src="img/T184E_BQWT1RXrhCrK.jpg"></div>
+    </div>
+    <div id="head_hot_goods_wrap">
+        <div id="head_hot_goods_title">
+            <span class="title_span">小米闪购</span>
+            <div id="head_hot_goods_change">
+                <span id="head_hot_goods_prave">&lt;</span>
+                <span id="head_hot_goods_next">&gt;</span>
+            </div>
+        </div>
+        <div id="head_hot_goods_content">
+            <ul>
+                <li class="times">
+                    <div class="round">10:00场</div>
+                    <img src="" alt="">
+                    <div class="desc">距离本场结束</div>
+                    <div class="countdown">
+                        <span id='hours'></span>
+                        <i>:</i>
+                        <span id='minus'></span>
+                        <i>:</i>
+                        <span id="seconds"></span>
+                    </div>
+                </li>
+                <div class="swipper-container">
+                    <div class="swiper-wrapper">
+                        <li>
+                            <a><img src="img/T19AbjBCDT1RXrhCrK.jpg"></a>
+                            <a>DM 平板</a>
+                            <a>全球首款 NVIDIA Tegra K1 平板</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T1meZjBCAT1RXrhCrK.jpg"></a>
+                            <a>DM 盒子增强版 1G</a>
+                            <a>首款4K超高清网络机顶盒</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T1tsEgB7DT1RXrhCrK.jpg"></a>
+                            <a>全新DM 路由器</a>
+                            <a>顶配路由器，企业级性能</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T10TJjB5hT1RXrhCrK.jpg"></a>
+                            <a>DM 头戴式耳机</a>
+                            <a>媲美主流千元级头戴耳机</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T1hLhjB_AT1RXrhCrK.jpg"></a>
+                            <a>DM 插线板</a>
+                            <a>3重安全保护，插线板中的艺术品</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T1KDAjBCAT1RXrhCrK.jpg"></a>
+                            <a>DM 路由器mini</a>
+                            <a>主流双频AC智能路由器</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T16eEjBKhT1RXrhCrK.jpg"></a>
+                            <a>DM 移动电源10000mAh</a>
+                            <a>高密度进口电芯，仅名片大小</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T1JnWjBCCT1RXrhCrK.jpg"></a>
+                            <a>DM 蓝牙耳机</a>
+                            <a>2015德国IF大奖，高清通话音质</a>
+                        </li>
+                        <li>
+                            <a><img src="img/T1BsbjBvLT1RXrhCrK.jpg"></a>
+                            <a>DM 活塞耳机</a>
+                            <a>2015红点奖，独家音质优化专利</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div id="main_show_box">
+        <div id="floor_1">
+            <div id="floor_head">
+                <span class="title_span">商品列表</span>
+            </div>
+        </div>
+        <div class="floor_goods_wrap">
+            <ul class="goods">
+                <!-- 商品展示区域 -->
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div id="foot_box">
+        <div id="foot_wrap">
+            <div class="foot_top">
+                <ul>
+                    <li>1小时快修服务</li>
+                    <li class="font_top_i">|</li>
+                    <li>7天无理由退货</li>
+                    <li class="font_top_i">|</li>
+                    <li>15天免费换货</li>
+                    <li class="font_top_i">|</li>
+                    <li>满150元包邮</li>
+                    <li class="font_top_i">|</li>
+                    <li>520余家售后网点</li>
+                </ul>
+            </div>
+            <div class="foot_bottom">
+                <div class="foot_bottom_l">
+                    <dl>
+                        <dt>帮助中心</dt>
+                        <dd>购物指南</dd>
+                        <dd>支付方式</dd>
+                        <dd>配送方式</dd>
+                    </dl>
+                    <dl>
+                        <dt>服务支持</dt>
+                        <dd>售后政策</dd>
+                        <dd>自助服务</dd>
+                        <dd>相关下载</dd>
+                    </dl>
+                    <dl>
+                        <dt>DM 之家</dt>
+                        <dd>DM 之家</dd>
+                        <dd>服务网点</dd>
+                        <dd>预约亲临到店服务</dd>
+                    </dl>
+                    <dl>
+                        <dt>关注我们</dt>
+                        <dd>新浪微博</dd>
+                        <dd>DM 部落</dd>
+                        <dd>官方微信</dd>
+                    </dl>
+                </div>
+                <div class="foot_bottom_r">
+                    <a>400-000-0000</a>
+                    <a>周一至周日 8:00-18:00</a>
+                    <a>（仅收市话费）</a>
+                    <span> 24小时在线客服</span>
+                </div>
+            </div>
+        </div>
+        <div class="foot_note_box">
+            <div class="foot_note_wrap">
+                <div class="foot_note_con">
+                    <span class="foot_logo"><img src="img/mi-logo.png" width="38px" height="38px"></span>
+                    <span class="foot_note_txt">
+                        <a>DM 网</a>
+                        <h>|</h><a>MIUI</a>
+                        <h>|</h><a>DM 聊</a>
+                        <h>|</h><a>多看书城</a>
+                        <h>|</h><a>DM 路由器</a>
+                        <h>|</h><a>DM 后院</a>
+                        <h>|</h><a>DM 天猫店</a>
+                        <h>|</h><a>DM 淘宝直营店</a>
+                        <h>|</h><a>DM 网盟</a>
+                        <h>|</h><a>问题反馈</a>
+                        <h>|</h><a>Select Region</a>
+                        <a> 5555555号</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script type="text/javascript" src="script/dm.js"></script> -->
+    <!-- <script src="script/main.js"></script> -->
+</body>
+
+</html>

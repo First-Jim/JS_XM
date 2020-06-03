@@ -1,0 +1,99 @@
+html body,
+h1,
+h2,
+h3,
+h4,
+h5,
+form,
+fieldset,
+legend,
+button,
+input,
+    {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+html a {
+    text-decoration: none;
+}
+
+html a:hover {
+    text-decoration: underline;
+}
+
+html legend {
+    color: #000;
+}
+
+html fieldset,
+html img {
+    border: 0;
+}
+
+body {
+    background-color: pink;
+}
+
+.wrap {
+    width: 585px;
+    height: 638px;
+    margin: 50px auto;
+    background-color: #fff;
+    position: relative;
+    top: 0;
+    transition: all 1s;
+    box-shadow: none;
+}
+
+.wrap:hover {
+    top: -5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 15px 25px;
+}
+
+.logo {
+    height: 48px;
+    width: 48px;
+    margin: 0 auto;
+}
+
+.logo img {
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+
+.wrap h2 {
+    font-size: 30px;
+    color: #333;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.regbox {
+    width: 332px;
+    height: 306px;
+    color: #666;
+    padding: 30px 0;
+    margin: 20px auto;
+}
+
+.regbox p {
+    text-align: center;
+}
+
+.submit {
+    width: 332px;
+    height: 42px;
+    margin: 20px auto;
+}
+
+.footer li {
+    color: #757575;
+    text-align: center;
+}
