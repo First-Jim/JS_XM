@@ -105,5 +105,7 @@ $("#find_wrap ul").mouseenter(function() {
 
 $('.home').load("../src/home.html");
 $('#footer').load("../src/footer.html");
+$('.subNav').load("../src/top.html");
+
 
 // $('#tops').load("../src/top.html");
