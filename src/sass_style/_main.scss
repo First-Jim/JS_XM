@@ -25,7 +25,6 @@ $title-span-fontsize:25px;
 
 //menu
 #menu_content_bg {
-    width: 100%;
     overflow: hidden;
     position: absolute;
     background: $white-color;
@@ -35,40 +34,49 @@ $title-span-fontsize:25px;
     -moz-transition: all 1s;
     -ms-transition: all 1s;
 
-    ul {
-        height: auto;
-        width: 100%;
-        position: absolute;
-        color: $menu-contant-wrap-bg;
-        display: block;
+    #menu_content_wrap {
+        width: $con;
+        margin: 0 auto;
+        background: red;
 
-        li {
-            display: none;
-            width: 100%;
-            height: $menu-content-LiHeight;
+        ul {
+            width: $con;
+            margin: 0 auto;
+            height: auto;
+            position: absolute;
+            color: $menu-contant-wrap-bg;
+            display: block;
 
-            .menu_content {
-                float: left;
-                width: $menu-content-width;
-                cursor: pointer;
-                margin-top: $menu-content-marginTop;
+            li {
+                display: none;
+                width: 100%;
+                height: $menu-content-LiHeight;
 
-                p {
-                    font-size: $P-fontsize;
-                    text-align: center;
-                    margin-top: $menu-content-PmarginTop;
+                .menu_content {
+                    float: left;
+                    width: $menu-content-width;
+                    cursor: pointer;
+                    margin-top: $menu-content-marginTop;
+
+                    p {
+                        font-size: $P-fontsize;
+                        text-align: center;
+                        margin-top: $menu-content-PmarginTop;
+                    }
                 }
-            }
 
-            .menu_content_line {
-                width: 0px;
-                height: 100px;
-                float: left;
-                margin: 30px 20px;
-                border-left: 1px solid $line-borderColor;
+                .menu_content_line {
+                    width: 0px;
+                    height: 100px;
+                    float: left;
+                    margin: 30px 20px;
+                    border-left: 1px solid $line-borderColor;
+                }
             }
         }
     }
+
+
 }
 
 //changebtn mix
@@ -752,5 +760,86 @@ $goods-liheight:320px;
                 }
             }
         }
+    }
+}
+
+.home-tool-bar {
+    position: fixed;
+    bottom: 70px;
+    right: 0;
+    z-index: 99;
+
+    .app:hover .pop-content {
+        opacity: 1;
+        display: block;
+    }
+
+    .item {
+        position: relative;
+        display: block;
+        width: 82px;
+        height: 90px;
+        margin-top: -1px;
+        background-color: #fff;
+        border: 1px solid #f5f5f5;
+        text-align: center;
+        text-decoration: none;
+        color: #757575;
+
+
+        &:last-child {
+            margin-top: 20px;
+        }
+
+        .pop-content {
+            position: absolute;
+            left: -130px;
+            top: 0;
+            padding: 14px;
+            background: #fff;
+            width: 100px;
+            text-align: center;
+            border: 1px solid #f5f5f5;
+            opacity: 0;
+
+            display: none;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+
+
+        .icon {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto 8px;
+            padding-top: 18px;
+
+
+            img {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 30px;
+                height: 30px;
+                -webkit-transition: opacity .3s;
+                transition: opacity .3s;
+            }
+
+            &:hover .static {
+                opacity: 0;
+            }
+
+            &:hover .hover {
+                opacity: 1;
+            }
+        }
+
+
     }
 }

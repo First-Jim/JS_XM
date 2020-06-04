@@ -9,7 +9,7 @@ const minu = document.querySelector('.countdown #minus');
 const seconds = document.querySelector('.countdown #seconds');
 
 $ajax({
-    url: 'http://localhost/JS_2002/project/php/render.php',
+    url: 'http://localhost/JS_2002/xiaomi/php/render.php',
     success: function(data) {
         console.log(JSON.parse(data));
         let obj = JSON.parse(data);
@@ -100,3 +100,10 @@ $("#find_wrap ul").mouseenter(function() {
         seconds.innerText = sec;
     }, 1);
 })();
+
+//加载公共文件
+
+$('.home').load("../src/home.html");
+$('#footer').load("../src/footer.html");
+
+// $('#tops').load("../src/top.html");
