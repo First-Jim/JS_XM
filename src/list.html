@@ -7,88 +7,101 @@
     <meta name="description" content="小米官网直营小米公司旗下所有产品，包括小米手机系列小米10 Pro 、小米9、小米MIX Alpha，Redmi 红米系列Redmi 10X、Redmi K30，小米电视、笔记本、米家智能家居等，同时提供小米客户服务及售后支持." />
     <meta name="keywords" content="小米,redmi,小米10,Redmi 10X,小米MIX Alpha,小米商城" />
     <link rel="stylesheet" href="css/list.css" />
+    <link rel="stylesheet" href="css/common_top.css">
+    <link rel="stylesheet" href="css/common_home.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/pagination.css">
 </head>
 
 <body>
+    <div id="topnav"></div>
     <div id="main_show_box">
         <div id="floor_1">
             <div id="floor_head">
-                <span class="title_span">商品列表</span>
+                <span class="title_span active">综合</span>
+                <span class="title_span">新品</span>
+                <span class="title_span">销量</span>
+                <span class="title_span">价格</span>
             </div>
         </div>
         <div class="floor_goods_wrap">
             <ul class="goods">
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
-                <li class="floor_goods_wrap_li">
-                    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
-                    <a class="floor_goods_tit">小米10 pro</a>
-                    <a class="floor_goods_txt">100</a>
-                    <a class="floor_goods_price">1999</a>
-                    <a href="detail.html?sid=${value.sid}"></a>
-                </li>
+                <!-- <li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li>
+<li class="floor_goods_wrap_li">
+    <a class="floor_goods_img"><img src="img/ihealth!160x110.jpg"></a>
+    <a class="floor_goods_tit">小米10 pro</a>
+    <a class="floor_goods_txt">100</a>
+    <a class="floor_goods_price">1999</a>
+    <a href="detail.html?sid=${value.sid}"></a>
+</li> -->
             </ul>
             <div style="clear:both;"></div>
         </div>
+        <div class="pagelist">
+            <div class="m-style page">
+            </div>
+        </div>
     </div>
+    <div id="home"></div>
     <script src="../script/ajax.js"></script>
-    <script src="../script/list.js"></script>
     <script src="../script/jquery-1.12.4.js"></script>
+    <script src="../script/list.js"></script>
+    <script src="../src/thirdplugins/jquery.pagination.js"></script>
 </body>
 
 </html>

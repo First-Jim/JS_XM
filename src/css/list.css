@@ -19,10 +19,20 @@
     margin-top: 20px;
 }
 
-#main_show_box #floor_1 #floor_head .title_span {
-    font-size: 25px;
+#floor_1 #floor_head .title_span {
+    font-size: 14px;
+    display: inline-block;
     font-weight: 100;
     color: #424242;
+    height: 20px;
+    padding: 0 30px;
+    border-right: 1px solid #e0e0e0;
+    line-height: 20px;
+}
+
+
+#main_show_box #floor_1 #floor_head .active {
+    color: #ff6700;
 }
 
 #main_show_box .floor_goods_wrap {

@@ -3,7 +3,7 @@
 define('HOST', 'localhost');
 define('USERNAME', 'root');
 define('PASSWORD', 'root');
-define('DBNAME', 'taobao');
+define('DBNAME', 'xiaomi');
 
 $conn = @new mysqli(HOST,USERNAME,PASSWORD,DBNAME);
 

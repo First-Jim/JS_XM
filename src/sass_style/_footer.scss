@@ -1,0 +1,144 @@
+$con:1226px;
+$mi-logo-bg:#ff6700;
+
+#foot_box {
+    width: 100%;
+    height: 280px;
+
+    #foot_wrap {
+        width: $con;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .foot_top {
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            border-bottom: 1px solid #BEBEBE;
+
+            ul {
+                width: 80%;
+                height: 100%;
+                margin: 0 auto;
+
+                .font_top_i {
+                    margin: 0 50px;
+                    font-size: 25px;
+                    font-weight: 100;
+
+                }
+
+                li {
+                    float: left;
+                    color: #9D9D9D;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .foot_bottom {
+            .foot_bottom_l {
+                height: 160px;
+                margin-top: 50px;
+                float: left;
+
+                dl {
+                    float: left;
+                    margin-left: 100px;
+
+                    dt {
+                        font-size: 15px;
+                        margin-bottom: 30px;
+
+                        dd {
+                            font-size: 13px;
+                            margin-top: 15px;
+                            color: #BEBEBE;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .foot_bottom_r {
+                height: 120px;
+                margin-top: 50px;
+                float: right;
+                margin-right: 0px;
+                text-align: center;
+                padding: 0 60px;
+                border-left: 1px solid #BEBEBE;
+
+                a {
+                    &:nth-child(2) {
+                        font-size: 13px;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+
+                    &:nth-child(3) {
+                        font-size: 13px;
+                        display: block;
+                        margin-bottom: 15px;
+                    }
+                }
+
+                span {
+                    transition: all .3s;
+                    -webkit-transition: all .3s;
+                    -moz-transition: all .3s;
+                    -ms-transition: all .3s;
+                    width: 120px;
+                    height: 30px;
+                    color: #FF6700;
+                    font-size: 13px;
+                    cursor: pointer;
+                    background: #FFF;
+                    line-height: 30px;
+                    border: 1px solid #FF6700
+                }
+            }
+        }
+    }
+
+    .foot_note_box {
+        .foot_note_wrap {
+            width: $con;
+            margin: 0 auto;
+            overflow: hidden;
+
+            .foot_note_con {
+                width: 800px;
+                height: 50px;
+                margin-top: 15px;
+
+                .foot_logo {
+                    width: 38px;
+                    height: 38px;
+                    display: block;
+                    background: $mi-logo-bg;
+                    float: left;
+                }
+
+                .foot_note_txt {
+                    display: block;
+                    height: 50px;
+                    width: 750px;
+                    float: left;
+                    margin-left: 10px;
+
+                    a {
+                        font-size: 12px;
+                        color: #757575;
+                    }
+
+                    i {
+                        font-style: normal;
+                        font-size: 13px;
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+    }
+}

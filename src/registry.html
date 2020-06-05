@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>小米商城 - 小米10 Pro、Redmi 10X、小米MIX Alpha，小米电视官方网站</title>
+    <title>小米账号-注册</title>
     <meta name="description" content="小米官网直营小米公司旗下所有产品，包括小米手机系列小米10 Pro 、小米9、小米MIX Alpha，Redmi 红米系列Redmi 10X、Redmi K30，小米电视、笔记本、米家智能家居等，同时提供小米客户服务及售后支持." />
     <meta name="keywords" content="小米,redmi,小米10,Redmi 10X,小米MIX Alpha,小米商城" />
     <link rel="stylesheet" href="css/registry.css">
@@ -18,24 +18,30 @@
             </div>
             <h2>注册小米帐号</h2>
             <div class="regbox">
-                <form action="" method="post">
+                <form action="http://localhost/JS_2002/xiaomi/php/registry.php" method="post">
                     <div class="form-group">
-                        <label for="exampleInputName1">姓名</label>
-                        <input type="text" class="form-control" name='username' id="exampleInputName1" placeholder="Username">
+                        <label for="username">姓名</label>
+                        <input type="text" class="form-control" name='username' id="username" placeholder="Username">
+                        <span class="user"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">密码</label>
-                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                        <label for="password">密码</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">邮箱</label>
-                        <input type="text" id="exampleInputEmail1" class="form-control" name="email" placeholder="Email">
+                        <label for="password">确认密码</label>
+                        <input type="password" class="form-control" name="repass" id="repass" placeholder="Password">
+                        <span class="pwd"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputTel1">电话</label>
-                        <input type="text" class="form-control" name="tel" id="exampleInputTel1" placeholder="telephone">
+                        <label for="email">邮箱</label>
+                        <input type="text" id="email" class="form-control" name="email" placeholder="Email">
                     </div>
-                    <button type="submit" class="btn  btn-success submit">立即注册</button>
+                    <div class="form-group">
+                        <label for="tel">电话</label>
+                        <input type="text" class="form-control" name="tel" id="tel" placeholder="telephone">
+                    </div>
+                    <button type="submit" name='submit' class="btn  btn-success submit">立即注册</button>
                 </form>
                 <p>已阅读并同意：小米 用户协议和 隐私政策</p>
             </div>
@@ -46,6 +52,8 @@
             </ul>
         </div>
     </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../script/registry.js"></script>
 </body>
 
 </html>

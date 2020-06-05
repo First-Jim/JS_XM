@@ -1,4 +1,6 @@
 "use strtic";
+$('#topnav').load('../src/top.html');
+$('#home').load('../src/home.html');
 //获取商品列表容器
 const goods = document.querySelector('.goods');
 const lis = document.querySelector('.goods li');

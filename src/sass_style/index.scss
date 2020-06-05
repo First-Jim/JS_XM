@@ -1,108 +1,108 @@
 @charset "utf-8"; //设置字符编码
 
-html body,
-html h1,
-html h2,
-html h3,
-html h4,
-html h5,
-html h6,
-html hr,
-html p,
-html blockquote,
-html dl,
-html dt,
-html dd,
-html ul,
-html ol,
-html li,
-html pre,
-html form,
-html fieldset,
-html legend,
-html button,
-html input,
-html textarea,
-html th,
-html td {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
     margin: 0;
     padding: 0;
 }
 
-html body,
-html button,
-html input,
-html select,
-html textarea {
+body,
+button,
+input,
+select,
+textarea {
     font: 12px/1.5tahoma, arial, \5b8b\4f53;
 }
 
-html h1,
-html h2,
-html h3,
-html h4,
-html h5,
-html h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-size: 100%;
 }
 
-html address,
-html cite,
-html dfn,
-html em,
-html var {
+address,
+cite,
+dfn,
+em,
+var {
     font-style: normal;
 }
 
-html code,
-html kbd,
-html pre,
-html samp {
+code,
+kbd,
+pre,
+samp {
     font-family: couriernew, courier, monospace;
 }
 
-html small {
+small {
     font-size: 12px;
 }
 
-html ul,
-html ol {
+ul,
+ol {
     list-style: none;
 }
 
-html a {
+a {
     text-decoration: none;
 }
 
-html a:hover {
+a:hover {
     text-decoration: underline;
 }
 
-html sup {
+sup {
     vertical-align: text-top;
 }
 
-html sub {
+sub {
     vertical-align: text-bottom;
 }
 
-html legend {
+legend {
     color: #000;
 }
 
-html fieldset,
-html img {
+fieldset,
+img {
     border: 0;
 }
 
-html button,
-html input,
-html select,
-html textarea {
+button,
+input,
+select,
+textarea {
     font-size: 100%;
 }
 
-html table {
+table {
     border-collapse: collapse;
     border-spacing: 0;
 }

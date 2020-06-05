@@ -1,0 +1,328 @@
+.top {
+    height: 120px;
+}
+
+.top a {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: auto 120px;
+    text-indent: -9999px;
+    background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ccbfedf698680df61909930d17219b72.jpg?w=5120&h=240);
+}
+
+.head_box {
+    width: 100%;
+    height: 40px;
+    background: #333;
+    overflow: visible;
+}
+
+.head_box #head_wrap {
+    width: 1226px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.head_box #head_wrap #head_nav {
+    float: left;
+    line-height: 40px;
+    color: #b0b0b0;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.head_box #head_wrap #head_nav a {
+    margin-left: 5px;
+}
+
+.head_box #head_wrap #head_nav a :hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.head_box #head_wrap #head_nav span {
+    margin-left: 5px;
+}
+
+.head_box #head_wrap #head_right {
+    float: right;
+    line-height: 40px;
+    color: #b0b0b0;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.head_box #head_wrap #head_right #head_landing {
+    float: left;
+    margin-right: 15px;
+}
+
+.head_box #head_wrap #head_right #head_landing a {
+    color: #ff6700;
+}
+
+.head_box #head_wrap #head_right #head_landing a :hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.head_box #head_wrap #head_right #head_car {
+    float: right;
+    width: 100px;
+    height: 40px;
+    background: #424242;
+    position: relative;
+}
+
+.head_box #head_wrap #head_right #head_car a:hover {
+    text-decoration: none;
+}
+
+.head_box #head_wrap #head_right #head_car #car_content {
+    position: absolute;
+    margin-left: -200px;
+}
+
+#main_head_box {
+    width: 100%;
+    position: relative;
+    color: #424242;
+}
+
+#main_head_box #doodle {
+    background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7e6765a0f1a6c0319640d3bb8f33be70.gif?w=165&h=55);
+    position: absolute;
+    left: 227px;
+    bottom: 0;
+    z-index: 21;
+    width: 165px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+#main_head_box #menu_wrap {
+    width: 1226px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+#main_head_box #menu_wrap #menu_logo {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    float: left;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    background: #ff6700;
+}
+
+#main_head_box #menu_wrap #menu_logo .logo:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 55px;
+    height: 55px;
+    background-attachment: fixed;
+    background: url(../img/mi-logo.png) no-repeat 50% 50%;
+    transition: .3s;
+    opacity: 1;
+}
+
+#main_head_box #menu_wrap #menu_logo .logo:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 55px;
+    height: 55px;
+    background-attachment: fixed;
+    background: url(../img/mi-home.png) no-repeat 50% 50%;
+    opacity: 1;
+    transition: .3s;
+    transform: translateX(-83px);
+}
+
+#main_head_box #menu_wrap #menu_logo:hover .logo:before {
+    transform: translateX(55px);
+}
+
+#main_head_box #menu_wrap #menu_logo:hover .logo:after {
+    transform: translateX(-27px);
+}
+
+#main_head_box #menu_wrap #menu_nav {
+    width: auto;
+    height: 100%;
+    float: left;
+    margin-left: 200px;
+}
+
+#main_head_box #menu_wrap #menu_nav ul {
+    list-style: none;
+}
+
+#main_head_box #menu_wrap #menu_nav ul li {
+    float: left;
+    line-height: 100px;
+    text-align: center;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+#main_head_box #menu_wrap #find_wrap {
+    position: relative;
+    float: right;
+    width: 302px;
+    line-height: 50px;
+    margin-top: 25px;
+    border: 1px solid #f0f0f0;
+}
+
+#main_head_box #menu_wrap #find_wrap ul {
+    position: absolute;
+    width: 224px;
+    left: 0;
+    top: 50px;
+    background: #f0f0f0;
+    display: none;
+    z-index: 999;
+}
+
+#main_head_box #menu_wrap #find_wrap ul li {
+    line-height: 28px;
+}
+
+#main_head_box #menu_wrap #find_wrap ul li a {
+    font-size: 12px;
+    color: #000;
+    font-family: sunsim;
+}
+
+#main_head_box #menu_wrap #find_wrap ul li :hover {
+    background: #424242;
+}
+
+#main_head_box #menu_wrap #find_wrap ul :hover {
+    display: none;
+}
+
+#main_head_box #menu_wrap #find_wrap #find_bar {
+    width: 245px;
+    height: 50px;
+    float: left;
+    overflow: hidden;
+}
+
+#main_head_box #menu_wrap #find_wrap #find_bar :hover {
+    border: 1px solid #e0e0e0;
+}
+
+#main_head_box #menu_wrap #find_wrap #find_bar #find_input {
+    width: 224px;
+    height: 28px;
+    border: none;
+    outline: none;
+}
+
+#main_head_box #menu_wrap #find_wrap #find_but {
+    width: 54px;
+    height: 48px;
+    text-align: center;
+    float: left;
+    font-size: 20px;
+    font-weight: 800;
+    color: #424242;
+    cursor: pointer;
+    border-left: 1px solid #f0f0f0;
+    transition: all 3s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+}
+
+.home-tool-bar {
+    position: fixed;
+    bottom: 70px;
+    right: 0;
+    z-index: 99;
+}
+
+.home-tool-bar .app:hover .pop-content {
+    opacity: 1;
+    display: block;
+}
+
+.home-tool-bar .item {
+    position: relative;
+    display: block;
+    width: 82px;
+    height: 90px;
+    margin-top: -1px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    text-decoration: none;
+    color: #757575;
+}
+
+.home-tool-bar .item:last-child {
+    margin-top: 20px;
+}
+
+.home-tool-bar .item .pop-content {
+    position: absolute;
+    left: -130px;
+    top: 0;
+    padding: 14px;
+    background: #fff;
+    width: 100px;
+    text-align: center;
+    border: 1px solid #f5f5f5;
+    opacity: 0;
+    display: none;
+}
+
+.home-tool-bar .item .pop-content img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.home-tool-bar .item .icon {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 8px;
+    padding-top: 18px;
+}
+
+.home-tool-bar .item .icon img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+}
+
+.home-tool-bar .item .icon:hover .static {
+    opacity: 0;
+}
+
+.home-tool-bar .item .icon:hover .hover {
+    opacity: 1;
+}
+
+/*# sourceMappingURL=common_top.css.map */

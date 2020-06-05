@@ -1,8 +1,16 @@
 "use strtic";
+
+//加载公共文件
+
+$('#nav').load("../src/top.html");
+$('#footer').load("../src/footer.html");
+$('#home').load("../src/home.html");
+
 //获取商品列表容器
 const goods = document.querySelector('.goods');
 const lis = document.querySelector('.goods li');
-const search = document.querySelector("#find_input");
+const search = document.querySelector("#nav #find_input");
+console.log(search);
 const searchResult = document.querySelector("#find_wrap ul");
 const hours = document.querySelector('.countdown #hours');
 const minu = document.querySelector('.countdown #minus');
@@ -75,7 +83,7 @@ $("#find_wrap ul").mouseenter(function() {
 
     let timer = setInterval(() => {
         let nowtime = new Date();
-        let future = new Date("2020/06/05 12:30:00");
+        let future = new Date("2020/06/06 21:30:00");
         let timeSum = future.getTime() - nowtime.getTime();
         let day = parseInt(timeSum / 1000 / 60 / 60 / 24);
         let hour = parseInt(timeSum / 1000 / 60 / 60 % 24);
@@ -100,12 +108,3 @@ $("#find_wrap ul").mouseenter(function() {
         seconds.innerText = sec;
     }, 1);
 })();
-
-//加载公共文件
-
-$('.home').load("../src/home.html");
-$('#footer').load("../src/footer.html");
-$('.subNav').load("../src/top.html");
-
-
-// $('#tops').load("../src/top.html");

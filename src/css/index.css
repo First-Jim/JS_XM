@@ -1,107 +1,107 @@
 @charset "UTF-8";
-html body,
-html h1,
-html h2,
-html h3,
-html h4,
-html h5,
-html h6,
-html hr,
-html p,
-html blockquote,
-html dl,
-html dt,
-html dd,
-html ul,
-html ol,
-html li,
-html pre,
-html form,
-html fieldset,
-html legend,
-html button,
-html input,
-html textarea,
-html th,
-html td {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
   margin: 0;
   padding: 0;
 }
 
-html body,
-html button,
-html input,
-html select,
-html textarea {
+body,
+button,
+input,
+select,
+textarea {
   font: 12px/1.5tahoma, arial, \5b8b\4f53;
 }
 
-html h1,
-html h2,
-html h3,
-html h4,
-html h5,
-html h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: 100%;
 }
 
-html address,
-html cite,
-html dfn,
-html em,
-html var {
+address,
+cite,
+dfn,
+em,
+var {
   font-style: normal;
 }
 
-html code,
-html kbd,
-html pre,
-html samp {
+code,
+kbd,
+pre,
+samp {
   font-family: couriernew, courier, monospace;
 }
 
-html small {
+small {
   font-size: 12px;
 }
 
-html ul,
-html ol {
+ul,
+ol {
   list-style: none;
 }
 
-html a {
+a {
   text-decoration: none;
 }
 
-html a:hover {
+a:hover {
   text-decoration: underline;
 }
 
-html sup {
+sup {
   vertical-align: text-top;
 }
 
-html sub {
+sub {
   vertical-align: text-bottom;
 }
 
-html legend {
+legend {
   color: #000;
 }
 
-html fieldset,
-html img {
+fieldset,
+img {
   border: 0;
 }
 
-html button,
-html input,
-html select,
-html textarea {
+button,
+input,
+select,
+textarea {
   font-size: 100%;
 }
 
-html table {
+table {
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -189,6 +189,17 @@ html table {
   position: relative;
   color: #424242;
 }
+#main_head_box #doodle {
+  background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7e6765a0f1a6c0319640d3bb8f33be70.gif?w=165&h=55);
+  position: absolute;
+  left: 227px;
+  bottom: 0;
+  z-index: 21;
+  width: 165px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
 #main_head_box #menu_wrap {
   width: 1226px;
   height: 100px;
@@ -201,6 +212,7 @@ html table {
   text-align: center;
   float: left;
   margin-top: 20px;
+  overflow: hidden;
   position: relative;
   background: #ff6700;
 }
@@ -213,29 +225,28 @@ html table {
   width: 55px;
   height: 55px;
   background-attachment: fixed;
-  background: url(http://s02.mifile.cn/assets/static/image/mi-logo.png) no-repeat 50% 50%;
-  transition: 1s;
+  background: url(../img/mi-logo.png) no-repeat 50% 50%;
+  transition: .3s;
   opacity: 1;
 }
 #main_head_box #menu_wrap #menu_logo .logo:after {
   content: '';
   position: absolute;
-  left: 0;
   top: 0;
   z-index: 1;
   width: 55px;
   height: 55px;
   background-attachment: fixed;
-  background: url(http://s02.mifile.cn/assets/static/image/mi-home.png) no-repeat 50% 50%;
-  opacity: 0;
-  transition: 1s;
-  transform: translateX(-55px);
+  background: url(../img/mi-home.png) no-repeat 50% 50%;
+  opacity: 1;
+  transition: .3s;
+  transform: translateX(-83px);
 }
-#main_head_box #menu_wrap #menu_logo :hover .logo:after {
-  transform: translateX(0);
-}
-#main_head_box #menu_wrap #menu_logo :hover .logo:before {
+#main_head_box #menu_wrap #menu_logo:hover .logo:before {
   transform: translateX(55px);
+}
+#main_head_box #menu_wrap #menu_logo:hover .logo:after {
+  transform: translateX(-27px);
 }
 #main_head_box #menu_wrap #menu_nav {
   width: auto;
@@ -315,9 +326,73 @@ html table {
   -ms-transition: all 1s;
 }
 
+.home-tool-bar {
+  position: fixed;
+  bottom: 70px;
+  right: 0;
+  z-index: 99;
+}
+.home-tool-bar .app:hover .pop-content {
+  opacity: 1;
+  display: block;
+}
+.home-tool-bar .item {
+  position: relative;
+  display: block;
+  width: 82px;
+  height: 90px;
+  margin-top: -1px;
+  background-color: #fff;
+  border: 1px solid #f5f5f5;
+  text-align: center;
+  text-decoration: none;
+  color: #757575;
+}
+.home-tool-bar .item:last-child {
+  margin-top: 20px;
+}
+.home-tool-bar .item .pop-content {
+  position: absolute;
+  left: -130px;
+  top: 0;
+  padding: 14px;
+  background: #fff;
+  width: 100px;
+  text-align: center;
+  border: 1px solid #f5f5f5;
+  opacity: 0;
+  display: none;
+}
+.home-tool-bar .item .pop-content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.home-tool-bar .item .icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 8px;
+  padding-top: 18px;
+}
+.home-tool-bar .item .icon img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+.home-tool-bar .item .icon:hover .static {
+  opacity: 0;
+}
+.home-tool-bar .item .icon:hover .hover {
+  opacity: 1;
+}
+
 #menu_content_bg {
   overflow: hidden;
-  position: absolute;
   background: #fff;
   z-index: 700;
   transition: all 3s;
@@ -339,7 +414,6 @@ html table {
   display: block;
 }
 #menu_content_bg #menu_content_wrap ul li {
-  display: none;
   width: 100%;
   height: 230px;
 }
@@ -928,74 +1002,10 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
   font-size: 12px;
   color: #757575;
 }
-#foot_box .foot_note_box .foot_note_wrap .foot_note_con .foot_note_txt h {
+#foot_box .foot_note_box .foot_note_wrap .foot_note_con .foot_note_txt i {
+  font-style: normal;
   font-size: 13px;
   margin: 0 5px;
-}
-
-.home-tool-bar {
-  position: fixed;
-  bottom: 70px;
-  right: 0;
-  z-index: 99;
-}
-.home-tool-bar .app:hover .pop-content {
-  opacity: 1;
-  display: block;
-}
-.home-tool-bar .item {
-  position: relative;
-  display: block;
-  width: 82px;
-  height: 90px;
-  margin-top: -1px;
-  background-color: #fff;
-  border: 1px solid #f5f5f5;
-  text-align: center;
-  text-decoration: none;
-  color: #757575;
-}
-.home-tool-bar .item:last-child {
-  margin-top: 20px;
-}
-.home-tool-bar .item .pop-content {
-  position: absolute;
-  left: -130px;
-  top: 0;
-  padding: 14px;
-  background: #fff;
-  width: 100px;
-  text-align: center;
-  border: 1px solid #f5f5f5;
-  opacity: 0;
-  display: none;
-}
-.home-tool-bar .item .pop-content img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.home-tool-bar .item .icon {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  margin: 0 auto 8px;
-  padding-top: 18px;
-}
-.home-tool-bar .item .icon img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30px;
-  height: 30px;
-  -webkit-transition: opacity .3s;
-  transition: opacity .3s;
-}
-.home-tool-bar .item .icon:hover .static {
-  opacity: 0;
-}
-.home-tool-bar .item .icon:hover .hover {
-  opacity: 1;
 }
 
 /*# sourceMappingURL=index.css.map */
