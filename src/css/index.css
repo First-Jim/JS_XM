@@ -414,6 +414,7 @@ table {
   display: block;
 }
 #menu_content_bg #menu_content_wrap ul li {
+  display: none;
   width: 100%;
   height: 230px;
 }

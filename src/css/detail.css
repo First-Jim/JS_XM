@@ -57,15 +57,14 @@ a {
 
 // 商品详情部分
 
-.mi-detail {}
+// .mi-detail {}
 
 
 .mi-detail .product-box {
     padding-top: 30px;
     width: 1226px;
-    margin: 100px auto;
-    position: relative;
     overflow: hidden;
+    margin: 100px auto;
 }
 
 .img-left {
@@ -73,6 +72,7 @@ a {
     float: left;
     border: 1px solid #000;
     overflow: hidden;
+    position: relative;
 }
 
 .magnify-glass {
@@ -95,10 +95,31 @@ a {
     height: 350px;
     top: 0;
     left: 0;
+    display: none;
     background: rgba(125, 125, 0, .5);
 }
 
 
+//右侧的放大镜效果
+.product-box .product-bigpic {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    left: 560px;
+    visibility: hidden;
+    z-index: 999;
+    // overflow: hidden;
+    background-color: red;
+    border: 1px solid #000;
+}
+
+.product-box .product-bigpic img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
 
 #spic {
     width: 560px;
@@ -174,18 +195,12 @@ a {
     height: 100%;
 }
 
-.product-box .max {
-    position: absolute;
-    width: 650px;
-    height: 650px;
-    left: 560px;
-    display: none;
-    border: 1px solid #000;
-}
+
 
 //右边商品信息
 .product-con {
     width: 600px;
+    // overflow: hidden;
 }
 
 .product-info {

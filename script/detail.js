@@ -2,15 +2,9 @@
     $('#footer').load("../src/footer.html");
     //1.获取地址栏的id
     let id = location.search.substring(1).split('=')[1];
-    const spic = document.querySelector('#spic');
-    const wrap = document.querySelector('.wrap');
-    const spic_img = document.querySelector('#spic img');
-    const pname = document.querySelector('.p-name a');
-    const loadpcp = document.querySelector('.loadpcp');
-    const btn = document.querySelector('.p-btn a');
-    const count = document.querySelector('#count');
-    const mask = document.querySelector('#mask');
-    const max = document.querySelector('#max');
+
+    const smallpic = $('#smallpic');
+    const bigpic = $('#bigpic');
 
 
     $ajax({

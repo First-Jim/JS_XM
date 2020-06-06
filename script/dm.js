@@ -1,4 +1,3 @@
-
 // 1. 购物车部分的显示控制
 
 $('#head_car').hover(function() {
@@ -70,7 +69,7 @@ $('#find_but').hover(function() {
 // 5. 菜单栏的显示控制
 $('#banner_menu_wrap>li').hover(function() {
     var $that = $(this);
-
+    // alert('qq');
     $that.css('background', '#FF6700');
     $that.find('div.banner_menu_content').css('border', '1px solid #F0F0F0').show();
 }, function() {
@@ -234,4 +233,3 @@ $('.foot_bottom_r>span').hover(function() {
         'color': '#FF6700'
     });
 });
-
