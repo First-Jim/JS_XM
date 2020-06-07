@@ -909,7 +909,7 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
   border-bottom: 1px solid #BEBEBE;
 }
 #foot_box #foot_wrap .foot_top ul {
-  width: 80%;
+  width: 88%;
   height: 100%;
   margin: 0 auto;
 }
@@ -924,22 +924,25 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
   cursor: pointer;
 }
 #foot_box #foot_wrap .foot_bottom .foot_bottom_l {
-  height: 160px;
-  margin-top: 50px;
+  overflow: hidden;
+  width: 860px;
+  font-size: 12px;
+  margin-top: 40px;
   float: left;
-}
-#foot_box #foot_wrap .foot_bottom .foot_bottom_l dl {
-  float: left;
-  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 #foot_box #foot_wrap .foot_bottom .foot_bottom_l dl dt {
+  margin: 0;
   font-size: 15px;
   margin-bottom: 30px;
 }
-#foot_box #foot_wrap .foot_bottom .foot_bottom_l dl dt dd {
+#foot_box #foot_wrap .foot_bottom .foot_bottom_l dl dd {
+  margin: 0;
   font-size: 13px;
-  margin-top: 15px;
-  color: #BEBEBE;
+  line-height: 24px;
+  color: #757575;
   cursor: pointer;
 }
 #foot_box #foot_wrap .foot_bottom .foot_bottom_r {
@@ -950,6 +953,10 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
   text-align: center;
   padding: 0 60px;
   border-left: 1px solid #BEBEBE;
+}
+#foot_box #foot_wrap .foot_bottom .foot_bottom_r p {
+  font-size: 14px;
+  color: #333;
 }
 #foot_box #foot_wrap .foot_bottom .foot_bottom_r a:nth-child(2) {
   font-size: 13px;
@@ -980,22 +987,17 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
   margin: 0 auto;
   overflow: hidden;
 }
-#foot_box .foot_note_box .foot_note_wrap .foot_note_con {
-  width: 800px;
-  height: 50px;
-  margin-top: 15px;
+#foot_box .foot_note_box .foot_note_wrap p {
+  font-size: 14px;
+  color: #333;
 }
-#foot_box .foot_note_box .foot_note_wrap .foot_note_con .foot_logo {
-  width: 38px;
-  height: 38px;
-  display: block;
-  background: #ff6700;
-  float: left;
+#foot_box .foot_note_box .foot_note_wrap .foot_note_con {
+  height: 50px;
+  margin-top: 10px;
 }
 #foot_box .foot_note_box .foot_note_wrap .foot_note_con .foot_note_txt {
   display: block;
   height: 50px;
-  width: 750px;
   float: left;
   margin-left: 10px;
 }

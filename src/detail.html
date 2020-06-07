@@ -13,8 +13,8 @@
 </head>
 
 <body>
-<div id="nav"></div>
-<div class="topNav-bar">
+    <div id="nav"></div>
+    <div class="topNav-bar">
         <div class="top-con">
             <div class="navwrap container">
                 <h2>小米10</h2>
@@ -34,62 +34,39 @@
         </div>
     </div>
     <div class="mi-detail ">
-        <div class="product-box clearfix">
+        <div class="product-box">
             <div class="img-left ">
-                <div class="magnify-glass ">
-                    <div class="mask"></div>
+                <div class="magnify-glass">
+                    <div id="mask"></div>
                     <div id="spic ">
-                        <img src="img/pic_mask.jpg" alt="" id="smallpic">
+                        <img src="" alt="" id="smallpic">
                     </div>
-                </div>
-                <div class="product-bigpic">
-                    <img src="img/hezimini!160x110.jpg" alt="">
                 </div>
                 <div class="slideWrap">
                     <a href="javascript:;" class="prev-btn"></a>
                     <a href="javascript:;" class="next-btn"></a>
                     <div class="slide-img ">
                         <ul class="list">
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
-                            <li>
-                                <img src="img/dianyuan.jpg" alt="">
-                            </li>
+                           <!-- 渲染小图 -->
+                           <li><img src="img/dianchi.jpg" alt=""></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="product-bigpic">
+                <img src="" alt="" id="bigpic">
+            </div>
             <div class="product-con clearfix">
                 <div class="product-info">
-                    <h2>
+                    <h2 >
                         <img src="img/mi_618.png" alt="">
-                        小米10
+                        <i class="title"></i>
                     </h2>
                     <p class="sale-desc">
-                        <font>「8GB+128GB闪降200元，到手仅3799元；256GB赠立式风冷无线充，信用卡分期享24期免息」</font>
-                        向往的生活同款 / 骁龙865处理器 / 1亿像素8K电影相机 / 双模5G / 新一代LPDDR5内存 / 对称式立体声 / 90Hz刷新率+180Hz采样率 / UFS 3.0高速存储 / 全面适配Wi-Fi 6 / 超强VC液冷散热 / 30W极速闪充+30W无线闪充+10W无线反充 / 4780mAh大电量 / 多功能NFC
+                        <font></font>
                     </p>
-                    <p class="company-info">小米自营</p>
-                    <p class="price-info">3999</p>
+                    <p class="company-info"></p>
+                    <p class="price-info"></p>
                     <div class="line"></div>
                     <div class="address-box">
                         <i></i>
@@ -132,11 +109,12 @@
                         <button class="btn btn-primary btn-small">
                             &minus;
                         </button>
-                        <h3 class="cart-item-quanlity">1</h3>
+                        <input type="text" id="cart-item-quanlity" value="1" />
                         <button class="btn btn-primary btn-small">
                             &plus;
                         </button>
-                        <a href="http://localhost/JS_2002/xiaomi/src/cart.html">加入购物车</a>
+                        <a id="add-cart" href="javascript:;">加入购物车</a>
+                        <a id="buy-action" target="_blank" href="http://localhost/JS_2002/xiaomi/src/cart.html">进入购物车</a>
                     </div>
                 </div>
             </div>
@@ -144,9 +122,8 @@
     </div>
     <div id="footer"></div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
-    <script src="../script/ajax.js"></script>
+    <script src="thirdplugins/jquery.cookie.js"></script>
     <script src="../script/detail.js"></script>
-    <script src="../script/cookie.js"></script>
     <script>
     </script>
 </body>

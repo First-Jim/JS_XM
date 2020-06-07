@@ -1,106 +1,159 @@
+!function($){
     $('#nav').load("../src/top.html");
     $('#footer').load("../src/footer.html");
     //1.获取地址栏的id
-    let id = location.search.substring(1).split('=')[1];
-
-    const smallpic = $('#smallpic');
-    const bigpic = $('#bigpic');
-
-
-    $ajax({
-        url: 'http://localhost/JS_2002/project/php/detail.php',
+    let $sid = location.search.substring(1).split('=')[1];
+    // 小图
+    const $smallpic = $('#smallpic');
+    //大图
+    const $bigpic = $('#bigpic');
+    //关键字
+    const $keyword = $('font');
+    const $title = $('.title');
+    //mask遮罩层
+    const $mask = $('#mask');
+    //商品类别
+    const $company_info = $('.company-info');
+    // 价格
+    const $price_info = $('.price-info');
+    //大图容器
+    const $product_bigpic = $('.product-bigpic');
+    //小图容器
+    const $magnify_glass = $('.magnify-glass');
+    //小图列表
+    const $list = $('.list');
+    //左右箭头
+    const $prev = $('.prev-btn');
+    const $next = $('.next-btn');
+     //如果$id不存在，默认$id = 1
+     if (!$sid) {
+        $sid = 1;
+    }
+    //2.将id传给后端
+    $.ajax({
+        url: 'http://localhost/JS_2002/xiaomi/php/getgoods_id.php',
         data: {
-            sid: id
+            sid: $sid
         },
-        success: function(data) {
-            let objdata = JSON.parse(data);
-            wrap.style.backgroundImage = `url(${objdata.url})`;
-            spic_img.sid = objdata.sid;
-            pname.innerHTML = objdata.title;
-            loadpcp.innerHTML = objdata.price;
-        }
+        dataType:'json'
+    }).done(function(data){
+        console.log(data);
+        $smallpic.attr('src',data.goods_small_logo);
+        //给图片添加唯一id
+        $smallpic.attr('sid',data.goods_id);
+        $bigpic.attr('src',data.goods_big_logo);
+        $keyword.html(data.goods_name);
+        $title.html(data.cat_three_id);
+        $company_info.html(data.cat_one_id);
+        $price_info.html(data.goods_price);
+    });
+    //渲染小图
+
+
+    //放大镜效果
+    // 遮罩层/大图的容器 = 小图/大图
+    // 大图的放大尺寸
+    $bigpic.width($product_bigpic.width() * $magnify_glass.width() / $mask.width());
+    $bigpic.height($product_bigpic.height() * $magnify_glass.height() / $mask.height());
+
+    //比例
+    let $scale = $bigpic.width() / $smallpic.width();
+
+    $magnify_glass.hover(function(){
+        $mask.css('visibility','visible');
+        $product_bigpic.css('visibility','visible');
+
+        $(this).on('mousemove',function(ev){
+            // 计算mask距离小图容器的左边和上面的距离
+            //ev.pageX === mouseX  原生js中
+            let $leftValue = ev.pageX - $magnify_glass.offset().left - $mask.width() /2;
+            let $topValue = ev.pageY - $magnify_glass.offset().top - $mask.height() /2;
+            if($leftValue < 0){
+                $leftValue = 0;
+            }else if($leftValue >= $magnify_glass.width() - $mask.width()){
+                $leftValue = $magnify_glass.width() - $mask.width();
+            }
+
+            if($topValue < 0){
+                $topValue = 0;
+            }else if($topValue >= $magnify_glass.height() - $mask.height()){
+                $topValue = $magnify_glass.height() - $mask.height();
+            }
+
+            $mask.css({
+                left:$leftValue,
+                top:$topValue
+            });
+
+            $bigpic.css({
+                left: -$scale * $leftValue,
+                top: - $scale * $topValue
+            })
+        });
+    },function(){
+        $mask.css('visibility','hidden');
+        $product_bigpic.css('visibility','hidden');
+    });
+    
+
+    //下面列表中小图的切换
+    $('.slide-img .list').on('click','li',function(){
+        // $(this).css('border','2px solid #ff6700');
+        let $imgsrc = $(this).find('img').attr('src');
+        $smallpic.attr('src',$imgsrc);
+        $bigpic.attr('src',$imgsrc);
     });
 
-    //2.进入购物车
-    //cookie存储：商品的sid和商品的数量
-    //arrsid : 存放商品的sid    [1,3,5,7,9]
-    //arrnum : 存放商品的数量    [12,35,67,22,11]
-    //点击加入购物车按钮，商品第一次购买，创建商品展示列表，第一次之后再购买，数量累加。
-
-    let arrsid = []; //存放商品的sid
-    let arrnum = []; //存放商品的数量
-
-
-    //先获取cookie才能进行点击次数的判断(第一次，还是第一次之后)
-    //提前约定cookie键值(cookiesid/cookienum)
-    //cookie.set('cookiesid',arrsid,10);
-    //cookie.set('cookienum',arrnum,10);
-
-    //函数将cookie取出，变成数组。
-    function cookievalue() {
-        if (cookie.get('cookiesid') && cookie.get('cookienum')) {
-            arrsid = cookie.get('cookiesid').split(','); //获取的cookie变成数组
-            arrnum = cookie.get('cookienum').split(',');
+    //左右箭头事件
+    let $nums = 6;//显示的列表的图片个数
+    //点击左边
+    $prev.on('click',function(){
+        let $lists = $('.list li');
+        if($nums > 6){
+            $nums --;
+            $next.css('color','#666');
+            if($nums <=6 ){
+                $prev.css('color','#fff');
+            }
+            $('.list').animate({
+                left: -($num - 6) * $lists.eq(0).outerWidth(true)
+            })
+        }
+    });
+    
+    
+    console.log($('#cart-item-quanlity').val());
+    //购物车本地存储
+    let arrsid = []; //存储商品的编号。
+    let arrnum = []; //存储商品的数量。
+    
+    //取出cookie,才能判断是第一次还是多次点击
+    function cookietoarray() {
+        if ($.cookie('cookiesid') && $.cookie('cookienum')) {
+            arrsid = $.cookie('cookiesid').split(','); //获取cookie 同时转换成数组。[1,2,3,4]
+            arrnum = $.cookie('cookienum').split(','); //获取cookie 同时转换成数组。[12,13,14,15]
         } else {
             arrsid = [];
             arrnum = [];
         }
     }
-    //通过判断确认是否是第一次加入购物车
-    btn.onclick = function() {
-        //获取当前商品的id
-        cookievalue();
-        if (arrsid.indexOf(id) !== -1) { //存在，不是第一次
-            //arrnum[arrsid.indexOf(id)] //通过id找对应的数量
-            //存在的数量+当前新加的数量
-            let num = parseInt(arrnum[arrsid.indexOf(id)]) + parseInt(count.value);
-            arrnum[arrsid.indexOf(id)] = num;
-            cookie.set('cookienum', arrnum, 10);
-
-        } else { //第一次添加商品
-            arrsid.push(id);
-            let num = parseInt(count.value);
-            arrnum.push(num);
-            cookie.set('cookiesid', arrsid, 10);
-            cookie.set('cookienum', arrnum, 10);
+    $('#add-cart').on('click',function(){
+        //获取之前添加在图片上的id
+        let $sid = $(this).parents('.mi-detail').find('#smallpic').attr('sid');
+        cookietoarray();//先查找本地储存有没有数据
+        if($.inArray($sid,arrsid) !== -1){//代表本地存储中有商品 的数据，数量直接增加
+            //先取出cookie中存在商品的数量，再加上现在加的数量
+            // alert('yiyou');
+            let $totalnums = parseInt(arrnum[$.inArray($sid,arrsid)]) + parseInt($('#cart-item-quanlity').val());
+            arrnum[$.inArray($sid,arrsid)] = $totalnums;
+            $.cookie('cookienum',arrnum,{expires:10,path:'/'});
+        } else{
+            // 第一次添加
+            arrsid.push($sid);
+            $.cookie('cookiesid',arrsid,{expires:10,path:'/'});
+            arrnum.push($('#cart-item-quanlity').val());
+            $.cookie('cookienum',arrnum,{expires:10,path:'/'});
         }
-        alert('商品已经加入购物车了');
-    }
-
-    wrap.addEventListener('mouseenter', mouseHandler);
-
-    function mouseHandler(e) {
-        if (e.type === "mouseenter") {
-            mask.style.display = max.style.display = "block"
-            this.addEventListener("mouseleave", mouseHandler);
-            this.addEventListener("mousemove", mouseHandler);
-        } else if (e.type === "mousemove") {
-            // 获取min块的相对视口位置，矩形
-            move(e.clientX, e.clientY);
-        } else if (e.type === "mouseleave") {
-            mask.style.display = max.style.display = "none"
-            this.removeEventListener("mouseleave", mouseHandler);
-            this.removeEventListener("mousemove", mouseHandler);
-        }
-        // console.log(this);
-        // console.log(this.style.backgroundImage.replace("url(", "").replace(")", ""));
-        console.log(this.style.backgroundImage); //url("https://img.alicdn.com/bao/uploaded/i1/2275024826/TB2xNbvdxlmpuFjSZPfXXc9iXXa_!!2275024826.jpg_200x200q90.jpg_.webp")
-        let src = this.style.backgroundImage.replace("url(", "").replace(")", "")
-        max.style.backgroundImage = `url(${src})`;
-    }
-
-    function move(mouseX, mouseY) {
-        // 返回元素的大小及其相对于视口的位置。
-        var rect = wrap.getBoundingClientRect();
-        x = mouseX - mask.offsetWidth / 2 - rect.x;
-        y = mouseY - mask.offsetHeight / 2 - rect.y;
-        if (x < 0) x = 0;
-        if (y < 0) y = 0;
-        if (x > wrap.offsetWidth - mask.offsetWidth) x = wrap.offsetWidth - mask.offsetWidth;
-        if (y > wrap.offsetHeight - mask.offsetHeight) y = wrap.offsetHeight - mask.offsetHeight;
-        mask.style.left = x + "px";
-        mask.style.top = y + "px";
-        max.style.backgroundPositionX = -x * (max.offsetWidth / mask.offsetWidth) + "px";
-        max.style.backgroundPositionY = -y * (max.offsetHeight / mask.offsetHeight) + "px";
-
-    }
+        alert('添加成功');
+    });
+}(jQuery);

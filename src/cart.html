@@ -8,7 +8,6 @@
     <meta name="keywords" content="小米,redmi,小米10,Redmi 10X,小米MIX Alpha,小米商城" />
     <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="css/font/iconfont.css">
-    <script src="../script/jquery-1.12.4.js"></script>
 </head>
 
 <body>
@@ -32,7 +31,7 @@
                         <li><a href="">评价晒单</a></li>
                         <li><a href="">我的喜欢</a></li>
                         <li><a href="">小米帐号</a></li>
-                        <li><a href="">退出登录</a></li>
+                        <li class="exit_login"><a href="">退出登录</a></li>
                     </ul>
                 </span>
                 <span class='line'>|</span>
@@ -45,7 +44,7 @@
             <div class="cart_list">
                 <div class="cart_header">
                     <div class="cart-check">
-                        <i class="iconfont icon-checkbox">√</i>
+                        <input type="checkbox" checked="" name="" id="allCK" value="" />
                         <span>全选</span>
                     </div>
                     <div class="cart-img">&nbsp;</div>
@@ -56,55 +55,25 @@
                     <div class="cart-action">操作</div>
                 </div>
                 <div class="cart_body">
-                    <div class="item-box">
+
+                    <!-- 渲染的数据 -->
+                    <div class="item-box" style="display: none;"> 
                         <div class="cart-check">
-                            <i class="iconfont icon-checkbox">√</i>
-                            <span>全选</span>
+                            <input type="checkbox" checked="" name="" id="" value=""/>
                         </div>
-                        <div class="cart-img"><a href=""><img src="img/hongmi2!160x110.jpg" alt=""></a></div>
+                        <div class="cart-img"><a href=""><img src="img/hongmi2!160x110.jpg" alt="" id="cart-img"></a></div>
                         <div class="cart-name">
-                            Redmi Note 8 4GB+64GB 曜石黑 64GB</div>
-                        <div class="cart-price">999元</div>
+                            Redmi Note 8 4Gdmi Note 8 4Gdmi Note 8 4Gdmi Note 8 4GB+64GB 曜石黑 64GB</div>
+                            <!-- 单价 -->
+                        <div class="cart-price unit-price"></div>
+                        <!-- 数量 -->
                         <div class="cart-num">
-                            <a href="">-</a>
-                            <input type="text">
-                            <a href="">+</a>
+                            <a href="javascript:;" class="quantity-down">-</a>
+                            <input type="text" value="">
+                            <a href="javascript:;" class="quantity-add">+</a>
                         </div>
-                        <div class="cart-total">3996元</div>
-                        <div class="cart-action iconfont icon-del"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="cart-check">
-                            <i class="iconfont icon-checkbox">√</i>
-                            <span>全选</span>
-                        </div>
-                        <div class="cart-img"><a href=""><img src="img/hongmi2!160x110.jpg" alt=""></a></div>
-                        <div class="cart-name">
-                            Redmi Note 8 4GB+64GB 曜石黑 64GB</div>
-                        <div class="cart-price">999元</div>
-                        <div class="cart-num">
-                            <a href="">-</a>
-                            <input type="text" value="11">
-                            <a href="">+</a>
-                        </div>
-                        <div class="cart-total">3996元</div>
-                        <div class="cart-action iconfont icon-del"></div>
-                    </div>
-                    <div class="item-box">
-                        <div class="cart-check">
-                            <i class="iconfont icon-checkbox">√</i>
-                            <span>全选</span>
-                        </div>
-                        <div class="cart-img"><a href=""><img src="img/hongmi2!160x110.jpg" alt=""></a></div>
-                        <div class="cart-name">
-                            Redmi Note 8 4GB+64GB 曜石黑 64GB</div>
-                        <div class="cart-price">999元</div>
-                        <div class="cart-num">
-                            <a href="">-</a>
-                            <input type="text" value="10">
-                            <a href="">+</a>
-                        </div>
-                        <div class="cart-total">3996元</div>
+                        <!-- 单个商品总价 -->
+                        <div class="cart-total singlePrice"></div>
                         <div class="cart-action iconfont icon-del"></div>
                     </div>
                 </div>
@@ -112,22 +81,22 @@
             <div id="footer">
                 <div class="cart-bar">
                     <div class="section-left">
-                        <a href="">继续购物</a>
+                        <a href="javascript:;">继续购物</a>
                         <span class="cart-total">
                             共
                             <i class="cartTotalNum">13</i>
                             件商品，已选择
-                            <i class="selTotalNam">12</i>
+                            <i class="selTotalNam"></i>
                             件
                         </span>
                     </div>
                     <div class="section-right">
                         <span class="totalPrice">
                             合计：
-                            <em>100</em>
+                            <em></em>
                             元
                         </span>
-                        <a href="" class="btn ">去结算</a>
+                        <a href="javascript:;" class="btn ">去结算</a>
                         <div class="no-select-tip">
                             请勾选需要结算的商品
                             <i class="arrow arrow-a"></i>
@@ -138,6 +107,9 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <script src="thirdplugins/jquery.cookie.js"></script>
+    <script src="../script/cart.js"></script>
 </body>
 
 </html>

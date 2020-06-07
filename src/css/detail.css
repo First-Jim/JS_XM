@@ -2,11 +2,10 @@ a {
     text-decoration: none !important;
 }
 
-//  nav-bar
+/* nav-bar */
 .topNav-bar {
     height: 63px;
     color: #616161;
-    background: red;
 }
 
 .top-con {
@@ -55,9 +54,11 @@ a {
 }
 
 
-// 商品详情部分
+ /* 商品详情部分 */
 
-// .mi-detail {}
+ .mi-detail {
+     overflow: hidden;
+ }
 
 
 .mi-detail .product-box {
@@ -89,27 +90,29 @@ a {
     display: block;
 }
 
-.magnify-glass .mask {
+.magnify-glass #mask {
     position: absolute;
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
     top: 0;
     left: 0;
-    display: none;
+    z-index: 9999;
+    cursor: pointer;
+    visibility: hidden;
     background: rgba(125, 125, 0, .5);
 }
 
 
-//右侧的放大镜效果
+/* 右侧的放大镜效果 */
 .product-box .product-bigpic {
     position: absolute;
     width: 650px;
     height: 650px;
-    left: 560px;
+    left: 708px;
     visibility: hidden;
     z-index: 999;
-    // overflow: hidden;
-    background-color: red;
+    margin-left: -1px;
+    overflow: hidden;
     border: 1px solid #000;
 }
 
@@ -117,8 +120,8 @@ a {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 650px;
+    height: 650px;
 }
 
 #spic {
@@ -134,7 +137,6 @@ a {
 
 .slideWrap {
     height: 58px;
-    // background: red;
     position: relative;
 }
 
@@ -144,8 +146,8 @@ a {
     height: 58px;
     margin: 0 auto;
     overflow: hidden;
-    background: red;
     left: 55px;
+
 }
 
 .slideWrap .next-btn {
@@ -176,9 +178,8 @@ a {
     position: absolute;
     left: 0;
     width: 2000px;
-    // margin: 0 auto;
     height: 58px;
-    // background: blue;
+
 }
 
 .slide-img ul li {
@@ -197,16 +198,11 @@ a {
 
 
 
-//右边商品信息
-.product-con {
-    width: 600px;
-    // overflow: hidden;
-}
+/* 右边商品信息 */
 
 .product-info {
     width: 600px;
     padding: 0 14px;
-    // background: pink;
     float: right;
 }
 
@@ -341,13 +337,17 @@ a {
     float: left;
 }
 
-.buy-option h3 {
+.buy-option input {
     width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
     line-height: 40px;
     text-align: center;
     float: left;
+    box-sizing: border-box;
+    border: 1px solid #ff4a00;
     color: #ff6700;
-    font-weight: 400;
 }
 
 .btn-primary {
