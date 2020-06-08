@@ -1,0 +1,165 @@
+!function($){
+    const $user = $('.name');
+    const $exit = $('.exit_login');
+    const $allSelected = $('.all_selected');
+    const $selected = $('.selected');
+    const $cart_name = $('.cart-name input');
+    const $cart_price = $('.cart-price');
+    const $cart_img = $('.cart-img');
+    //商品的个数
+    const $cart_total = $('.cart-total');
+    //删除
+    const $cart_action = $('.cart-action');
+    //商品种类 的数量
+    const $cartTotalNum = $('.cartTotalNum');
+    //选中的数量
+    const $selTotalNam = $('.selTotalNam');
+    // 总价
+    const $totalPrice = $('.totalPrice em');
+
+    // 1.获取所有的接口数据，根据cookie渲染对用的商品
+    function showlist(sid,sum){
+        $.ajax({
+            url: 'http://10.31.162.52/JS_2002/xiaomi/php/alldata.php',
+            dataType:'json'
+        }).done(function(data){
+            $.each(data,function(index,value){
+                if(sid == value.goods_id){
+                    // 渲染的数据不能直接获取到，可以先克隆,一份后隐藏
+                   let $cloneItemBox = $('.item-box:hidden').clone(true,true);//深复制
+                   $cloneItemBox.find('.cart-img').find('img').attr('src',value.goods_small_logo);
+                   $cloneItemBox.find('.cart-name').html(value.goods_name);
+                   $cloneItemBox.find('.cart-price').html(value.goods_price);
+                   $cloneItemBox.find('.cart-num').find('input').val(sum);
+                   $cloneItemBox.find('.cart-total').html((value.goods_price * sum).toFixed(2));
+
+                   $cloneItemBox.css('display', 'block');
+                   $('.cart_body').append($cloneItemBox);
+                }
+
+            });
+            
+        });
+    }
+
+    // 2.获取cookie 渲染数据
+    if($.cookie('cookiesid') && $.cookie('cookienum')){
+            // 接受cookie,转化为一个数组
+            let sid = $.cookie('cookiesid').split(',');
+            let sum = $.cookie('cookienum').split(',');
+            // console.log(sid,sum);
+            $.each(sid,function(index,value){
+               showlist(sid[index],sum[index]);
+            });
+    }
+    calcprice();
+    //3.计算价格
+    function calcprice() {
+        let $count = 0; //商品的件数
+        let $singlePrice = 0; //商品的总价
+        $('.item-box:visible').each(function(index, ele) {
+            //商品种类
+            console.log(index);
+            $('.cartTotalNum').html(index)
+            if ($(ele).find('.cart-check input').prop('checked')) { //复选框勾选
+                $count += parseInt($(ele).find('.cart-num input').val());
+                $singlePrice += parseFloat($(ele).find('.singlePrice').html());
+            }
+        });
+        $('.cart-num').find('input').val($count);
+        $('.totalPrice').find('em').text($singlePrice.toFixed(2));
+    }
+    
+    //4.全选
+    $('#allCK').on('change', function() {//全选按钮发生改变
+        //排除赋值前的元素
+        $('.item-box:visible').find(':checkbox').prop('checked', $(this).prop('checked'));
+        $('#allCK').prop('checked', $(this).prop('checked'));
+        calcprice(); //计算总价
+    });
+    // :checkbox 选择器选取类型为 checkbox 的 <input> 元素。
+    let $inputs = $('.item-box:visible').find(':checkbox');
+    console.log($inputs);
+
+    $('.cart_body').on('change', $inputs, function() {
+        //$(this):被委托的元素，checkbox
+        if ($('.item-box:visible').find(':checkbox').length === $('.item-box:visible').find('input:checked').size()) {
+            $('#allCK').prop('checked', true);
+        } else {
+            $('#allCK').prop('checked', false);
+        }
+        calcprice(); //计算总价
+    });
+    //5.step加减数量
+   $('.quantity-add').on('click', function() {
+    let $count = $(this).parents('.item-box').find('.cart-num').find('input').val();
+    $count++;
+    $(this).parents('.item-box').find('.cart-num input').val($count);
+
+    $(this).parents('.item-box').find('.singlePrice').html(calcsingleprice($(this)));
+    calcprice(); //计算总价
+    setcookie($(this));
+});
+
+
+$('.quantity-down').on('click', function() {
+    let $count = $(this).parents('.item-box').find('.cart-num').find('input').val();
+    
+    $count--;
+    if ($count < 1) {
+        $count = 1;
+    }
+    // 
+    $(this).parents('.item-box').find('.cart-num').find('input').val($count);
+
+    $(this).parents('.item-box').find('.singlePrice').html(calcsingleprice($(this)));
+    calcprice(); //计算总价
+    setcookie($(this));
+});
+
+
+$('.cart-num input').on('input', function() {
+    let $reg = /^\d+$/g; //只能输入数字
+    let $value = $(this).val();
+    if (!$reg.test($value)) { //不是数字
+        $(this).val(1);
+    }
+    $(this).parents('.item-box').find('.singlePrice').html(calcsingleprice($(this)));
+
+    calcprice(); //计算总价
+    setcookie($(this));
+});
+
+ //计算单价
+ function calcsingleprice(obj) { //obj元素对象
+    let $unit_price = parseFloat(obj.parents('.item-box').find('.unit-price').html());
+    console.log($unit_price);
+    let $count = parseInt(obj.parents('.item-box').find('.cart-num input').val());
+    console.log($count);
+    return ($unit_price * $count).toFixed(2)
+}
+
+
+
+ //将改变后的数量存放到cookie中
+ let arrsid = []; //存储商品的编号。
+ let arrnum = []; //存储商品的数量。
+ function cookietoarray() {
+     if ($.cookie('cookiesid') && $.cookie('cookienum')) {
+         arrsid = $.cookie('cookiesid').split(','); //获取cookie 同时转换成数组。[1,2,3,4]
+         arrnum = $.cookie('cookienum').split(','); //获取cookie 同时转换成数组。[12,13,14,15]
+     } else {
+         arrsid = [];
+         arrnum = [];
+     }
+ }
+
+ function setcookie(obj) {
+     cookietoarray();
+     let $sid = obj.parents('.cart_body').find('img').attr('sid');
+     arrnum[$.inArray($sid, arrsid)] = obj.parents('.cart_body').find('.cart-num input').val();
+    //  jscookie.add('cookienum', arrnum, 10);
+ }
+
+
+}(jQuery);
