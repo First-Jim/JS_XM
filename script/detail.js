@@ -31,7 +31,7 @@
     }
     //2.将id传给后端
     $.ajax({
-        url: 'http://localhost/JS_2002/xiaomi/php/getgoods_id.php',
+        url: 'http://10.31.162.52/JS_2002/xiaomi/php/getgoods_id.php',
         data: {
             sid: $sid
         },
@@ -46,6 +46,14 @@
         $title.html(data.cat_three_id);
         $company_info.html(data.cat_one_id);
         $price_info.html(data.goods_price);
+        // 渲染小图
+        let $slipic = data.goods_piclisurl.split(',');
+        // console.log($slipic);
+        let $strhtml = '';
+        $.each($slipic, function(index, value) {
+            $strhtml += '<li><img src="' + value + '"/>></li>';
+        });
+        $('.list').html($strhtml);
     });
     //渲染小图
 
@@ -111,17 +119,33 @@
         let $lists = $('.list li');
         if($nums > 6){
             $nums --;
-            $next.css('color','#666');
+            console.log($nums);
+            // $next.css('color','#666');
             if($nums <=6 ){
                 $prev.css('color','#fff');
             }
             $('.list').animate({
-                left: -($num - 6) * $lists.eq(0).outerWidth(true)
+                left: -($nums - 6) * $lists.eq(0).outerWidth(true)
             })
         }
     });
     
-    
+     //点击右边
+     $next.on('click',function(){
+        let $lists = $('.list li');
+
+        if($lists.size() > $nums){
+            $nums ++;
+            console.log($nums);
+            // $next.css('color','#666');
+            if($nums <=6 ){
+                // $prev.css('color','#fff');
+            }
+            $('.list').animate({
+                left: -($nums - 6) * $lists.eq(0).outerWidth(true)
+            })
+        }
+    });
     console.log($('#cart-item-quanlity').val());
     //购物车本地存储
     let arrsid = []; //存储商品的编号。

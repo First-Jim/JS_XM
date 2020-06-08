@@ -5,7 +5,7 @@
     $user.on('blur', function() {
         $.ajax({
             type: 'post',
-            url: 'http://localhost/JS_2002/xiaomi/php/registry.php',
+            url: 'http://10.31.162.52/JS_2002/xiaomi/php/registry.php',
             data: {
                 username: $user.val()
             }

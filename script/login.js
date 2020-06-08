@@ -2,7 +2,7 @@
     $('.btn').on('click', function () {
         $.ajax({
             type: 'post',
-            url: 'http://localhost/JS_2002/019/Day%2019_projectname/php/login.php',
+            url: 'http://10.31.162.52/JS_2002/019/Day%2019_projectname/php/login.php',
             data: {
                 user: $('.username').val(),
                 pass: hex_sha1($('.password').val())
