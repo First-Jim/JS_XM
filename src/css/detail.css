@@ -6,6 +6,7 @@ a {
 .topNav-bar {
     height: 63px;
     color: #616161;
+    background-color: #fff;
 }
 
 .top-con {
@@ -17,6 +18,12 @@ a {
     width: 1226px;
     margin: 0 auto;
     height: 60px;
+}
+.topNav-bar.suspended-bar{
+    position: fixed;
+    top:0;
+    left:0;
+
 }
 
 .container a {
@@ -156,7 +163,6 @@ a {
     height: 58px;
     background: url(../img/icon-slides.png) no-repeat -125px 50%;
     right: 0;
-    background: #000;
     line-height: 32px;
 
 }
@@ -172,6 +178,9 @@ a {
 
 .slideWrap .prev-btn:hover {
     background-position: 0 50%;
+}
+.slideWrap .next-btn:hover {
+    background-position:-42px 50%;
 }
 
 .slide-img ul {
@@ -359,7 +368,7 @@ a {
     margin-left: 30px;
     display: inline-block;
     background: #ff6700;
-    width: 142px;
+    width: 100px;
     text-align: center;
     color: #fff;
     line-height: 54px;

@@ -28,13 +28,16 @@
                     // 渲染的数据不能直接获取到，可以先克隆,一份后隐藏
                    let $cloneItemBox = $('.item-box:hidden').clone(true,true);//深复制
                    $cloneItemBox.find('.cart-img').find('img').attr('src',value.goods_small_logo);
+                   $cloneItemBox.find('.cart-img').find('img').attr('sid',value.goods_id);
+
                    $cloneItemBox.find('.cart-name').html(value.goods_name);
                    $cloneItemBox.find('.cart-price').html(value.goods_price);
-                   $cloneItemBox.find('.cart-num').find('input').val(sum);
+                   $cloneItemBox.find('.cart-num').find('#goods_nums').val(sum);
                    $cloneItemBox.find('.cart-total').html((value.goods_price * sum).toFixed(2));
 
                    $cloneItemBox.css('display', 'block');
                    $('.cart_body').append($cloneItemBox);
+                   calcprice();//总价
                 }
 
             });
@@ -47,42 +50,50 @@
             // 接受cookie,转化为一个数组
             let sid = $.cookie('cookiesid').split(',');
             let sum = $.cookie('cookienum').split(',');
-            // console.log(sid,sum);
+
+            console.log(sid,sum);
             $.each(sid,function(index,value){
                showlist(sid[index],sum[index]);
+               console.log(sid[index],sum[index]);
             });
     }
-    calcprice();
     //3.计算价格
     function calcprice() {
         let $count = 0; //商品的件数
-        let $singlePrice = 0; //商品的总价
+        let $singlePrice = 0; //单个商品的总价
         $('.item-box:visible').each(function(index, ele) {
+            // console.log(ele);
             //商品种类
-            console.log(index);
-            $('.cartTotalNum').html(index)
-            if ($(ele).find('.cart-check input').prop('checked')) { //复选框勾选
+            let kinds = $('.item-box:visible').size();
+            //已选中的商品种类
+            let selectedKinds= $('.item-box:visible').find('input:checked').size();
+            // console.log(kinds);
+            $('.cartTotalNum').html(kinds)
+            $('.selTotalNam').html(selectedKinds);
+            if ($(ele).parents('.cart_list').find('#allCK').prop('checked')) { //复选框勾选
+                //计算商品数量和单个商品总价格
                 $count += parseInt($(ele).find('.cart-num input').val());
                 $singlePrice += parseFloat($(ele).find('.singlePrice').html());
             }
         });
+        
         $('.cart-num').find('input').val($count);
+        //总价
         $('.totalPrice').find('em').text($singlePrice.toFixed(2));
     }
     
     //4.全选
     $('#allCK').on('change', function() {//全选按钮发生改变
-        //排除赋值前的元素
+        //其他的input全部勾选，全选就勾选，
         $('.item-box:visible').find(':checkbox').prop('checked', $(this).prop('checked'));
         $('#allCK').prop('checked', $(this).prop('checked'));
         calcprice(); //计算总价
     });
     // :checkbox 选择器选取类型为 checkbox 的 <input> 元素。
     let $inputs = $('.item-box:visible').find(':checkbox');
-    console.log($inputs);
-
-    $('.cart_body').on('change', $inputs, function() {
-        //$(this):被委托的元素，checkbox
+    // console.log($inputs);
+    //事件委托，判断是否全选
+    $('.cart_list').on('change', $inputs, function() {
         if ($('.item-box:visible').find(':checkbox').length === $('.item-box:visible').find('input:checked').size()) {
             $('#allCK').prop('checked', true);
         } else {
@@ -92,11 +103,12 @@
     });
     //5.step加减数量
    $('.quantity-add').on('click', function() {
-    let $count = $(this).parents('.item-box').find('.cart-num').find('input').val();
+    //    console.log($(this).parents('.item-box'));
+    let $count = $(this).parents('.item-box').find('.cart-num input ').val();
     $count++;
-    $(this).parents('.item-box').find('.cart-num input').val($count);
+    $(this).parents('.item-box').find('#goods_nums').val($count);
 
-    $(this).parents('.item-box').find('.singlePrice').html(calcsingleprice($(this)));
+    $(this).parents('.item-box').find('.singlePrice').html(checkPrice($(this)));
     calcprice(); //计算总价
     setcookie($(this));
 });
@@ -110,9 +122,9 @@ $('.quantity-down').on('click', function() {
         $count = 1;
     }
     // 
-    $(this).parents('.item-box').find('.cart-num').find('input').val($count);
+    $(this).parents('.item-box').find('#goods_nums').val($count);
 
-    $(this).parents('.item-box').find('.singlePrice').html(calcsingleprice($(this)));
+    $(this).parents('.item-box').find('.singlePrice').html(checkPrice($(this)));
     calcprice(); //计算总价
     setcookie($(this));
 });
@@ -124,19 +136,19 @@ $('.cart-num input').on('input', function() {
     if (!$reg.test($value)) { //不是数字
         $(this).val(1);
     }
-    $(this).parents('.item-box').find('.singlePrice').html(calcsingleprice($(this)));
+    $(this).parents('.item-box').find('.singlePrice').html(checkPrice($(this)));
 
     calcprice(); //计算总价
     setcookie($(this));
 });
 
  //计算单价
- function calcsingleprice(obj) { //obj元素对象
+ function checkPrice(obj) { //obj元素对象
     let $unit_price = parseFloat(obj.parents('.item-box').find('.unit-price').html());
-    console.log($unit_price);
-    let $count = parseInt(obj.parents('.item-box').find('.cart-num input').val());
+    // console.log($unit_price);
+    let $count = parseInt(obj.parents('.item-box').find('#goods_nums').val());
     console.log($count);
-    return ($unit_price * $count).toFixed(2)
+    return ($unit_price * $count).toFixed(2);
 }
 
 
@@ -156,10 +168,30 @@ $('.cart-num input').on('input', function() {
 
  function setcookie(obj) {
      cookietoarray();
-     let $sid = obj.parents('.cart_body').find('img').attr('sid');
-     arrnum[$.inArray($sid, arrsid)] = obj.parents('.cart_body').find('.cart-num input').val();
-    //  jscookie.add('cookienum', arrnum, 10);
+     let $sid = obj.parents('.cart_list').find('img').attr('sid');
+     arrnum[$.inArray($sid, arrsid)] = obj.parents('.cart_list').find('.cart-num input').val();
+     $.cookie('cookienum', arrnum, { expires: 10, path: '/' });
  }
 
+   //6.删除
+   function delcookie(sid, arrsid) { //sid:当前删除的sid  arrsid:存放sid的数组
+    let $index = -1; //删除的索引位置
+    $.each(arrsid, function(index, value) {
+        if (sid === value) {
+            $index = index;
+        }
+    });
+    arrsid.splice($index, 1);
+    arrnum.splice($index, 1);
 
+    $.cookie('cookiesid', arrsid, { expires: 10, path: '/' });
+    $.cookie('cookienum', arrnum, { expires: 10, path: '/' });
+}
+$('.icon-del').on('click',function(){
+    cookietoarray();
+    $(this).parents('.item-box').remove();
+    delcookie($(this).parents('.item-box').find('img').attr('sid'), arrsid);
+    calcprice(); //计算总价
+
+});
 }(jQuery);

@@ -1,6 +1,5 @@
 !function($){
     $('#topnav').load('../src/top.html');
-    $('#home').load('../src/home.html');
     //获取商品列表容器
     $goods = $('.floor_goods_wrap');
     $lis = $('.goods li');
@@ -25,7 +24,7 @@
             <a class="floor_goods_tit">${value.goods_name}</a>
             <a class="floor_goods_txt">${value.goods_number}</a>
             <a class="floor_goods_price">${value.goods_price}</a>
-            <a href="detail.html?sid=${value.goods_id}"></a>
+            <a  href="detail.html?sid=${value.goods_id}" target='_blank'></a>
         </li>
 
         `;

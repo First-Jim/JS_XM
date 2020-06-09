@@ -737,7 +737,7 @@ table {
   font-size: 13px;
   color: #333;
 }
-s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
+#head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
   font-size: 12px;
   background: #f5f5f5;
   padding-bottom: 80px;
@@ -788,6 +788,17 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
   height: 320px;
   position: absolute;
   left: 0px;
+}
+#head_hot_goods_wrap #head_hot_goods_content ul .swipper-container .swiper-wrapper img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+#head_hot_goods_wrap #head_hot_goods_content ul .swipper-container .swiper-wrapper a {
+  font-size: 14px;
+  line-height: 25px;
+  text-align: center;
 }
 
 #main_show_box {
@@ -841,11 +852,7 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
 }
 #main_show_box .floor_goods_wrap ul li:first-child {
   width: 234px;
-  height: 660px;
-}
-#main_show_box .floor_goods_wrap ul li:first-child img{
-    width: 100%;
-    height: 100%;
+  height: 600px;
 }
 #main_show_box .floor_goods_wrap ul li:hover {
   top: -5px;
@@ -895,6 +902,71 @@ s #head_hot_goods_wrap #head_hot_goods_content ul li a:nth-child(3) {
 .floor_goods_price::before {
   content: "￥";
   font-size: 12px;
+}
+
+.home-tool-bar {
+  position: fixed;
+  bottom: 70px;
+  right: 0;
+  z-index: 99;
+}
+.home-tool-bar .app:hover .pop-content {
+  opacity: 1;
+  display: block;
+}
+.home-tool-bar .item {
+  position: relative;
+  display: block;
+  width: 82px;
+  height: 90px;
+  margin-top: -1px;
+  background-color: #fff;
+  border: 1px solid #f5f5f5;
+  text-align: center;
+  text-decoration: none;
+  color: #757575;
+}
+.home-tool-bar .item:last-child {
+  margin-top: 20px;
+}
+.home-tool-bar .item .pop-content {
+  position: absolute;
+  left: -130px;
+  top: 0;
+  padding: 14px;
+  background: #fff;
+  width: 100px;
+  text-align: center;
+  border: 1px solid #f5f5f5;
+  opacity: 0;
+  display: none;
+}
+.home-tool-bar .item .pop-content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.home-tool-bar .item .icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 8px;
+  padding-top: 18px;
+}
+.home-tool-bar .item .icon img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+.home-tool-bar .item .icon:hover .static {
+  opacity: 0;
+}
+.home-tool-bar .item .icon:hover .hover {
+  opacity: 1;
 }
 
 #foot_box {

@@ -22,9 +22,11 @@
     });
     // 事件委托表单验证
     $('.regbox').on('blur', 'input', function(e) {
-
+        // alert(this);
         let value = $(this).val();
-        if (!value) {}
+        if (value === '') {
+            alert('no');
+        }
         // console.log(this, value);
 
     });
@@ -32,21 +34,22 @@
     // $('#password').on('blur', function() {
     //     if(){}
     // })
-    // $('#repass').on('blur', function() {
-    //     if (!$('#password').val() === '') {
-    //         $('.pwd').html('请输入的密码').css('color', 'red');
-    //         if (!$('#repass').val() === '') {
-    //             $('.pwd').html('请您确认密码').css('color', 'red');
-    //         }
-    //     }
-    //     $('.pwd').html("");
-    //     $pwdflag = $('#password').val() == $('#repass').val();
-    //     if (!$pwdflag) {
-    //         $('.pwd').html('两次输入的密码不一致').css('color', 'red');
-    //         return false;
-    //     }
-    //     $('.pwd').html('√').css('color', 'green');
-    // });
+
+    $('#repass').on('blur', function() {
+        if (!$('#password').val() === '') {
+            $('.pwd').html('请输入的密码').css('color', 'red');
+            if (!$('#repass').val() === '') {
+                $('.pwd').html('请您确认密码').css('color', 'red');
+            }
+        }
+        $('.pwd').html("");
+        $pwdflag = $('#password').val() == $('#repass').val();
+        if (!$pwdflag) {
+            $('.pwd').html('两次输入的密码不一致').css('color', 'red');
+            return false;
+        }
+        $('.pwd').html('√').css('color', 'green');
+    });
 
 
     $('form').on('submit', function() {

@@ -2,12 +2,49 @@
 
 //0.加载公共文件
 
-$('#nav').load("../src/top.html");
+$('#nav').load("../src/top.html",function(){
+    
+    // 2. 导航栏的显示控制
+    // $('.menu_li').hover(function() {
+        
+    //     // console.log
+    //     var $that = $(this);
+    //     // 导航栏字体颜色
+    //     $that.css('color', '#FF6700');
+    //     // hover时，对应的下部菜单
+    //     $('#' + $that.attr('control')).show();
+    //     // 下部菜单的高度需要设定，缺省时0，无法显示
+    //     $('#menu_content_bg').css('border', '1px solid #D0D0D0')
+    //         .height(230);
+    // }, function() {
+    //     var $that = $(this);
+    //     // 复原颜色
+    //     $that.css('color', '#424242');
+    //     $('#' + $that.attr('control')).hide();
+    //     $('#menu_content_bg').height(0)
+    //         .css('border', '0px solid #D0D0D0');
+    // });
+
+});
 $('#footer').load("../src/footer.html");
-$('#home').load("../src/home.html");
+$('#home').load("../src/home.html",function(){
+    //置顶
+    // let bool = false;
+    // $(this).find('.home-tool-bar a:last-child').on('click',function(){
+    //     bool = true;
+    //     console.log('a');
+    //     let ids = setInterval(function(){
+    //         if(!bool) return;
+    //         $(document).scrollTop() -= 100;
+    //         if($(document).scrollTop() ===0){
+    //             clearInterval(ids);
+    //             bool = false;
+    //         }
+    //     },16);
+    // })
+});
 
 // 1. 购物车部分的显示控制
-
 $('#head_car').hover(function() {
     // div bg
     $(this).css('background', '#FBFEE9');
@@ -23,25 +60,6 @@ $('#head_car').hover(function() {
     $('#car_content').css('width', '300px').animate({
         height: '0px'
     }, 500);
-});
-
-// 2. 导航栏的显示控制
-$('.menu_li').hover(function() {
-    var $that = $(this);
-    // 导航栏字体颜色
-    $that.css('color', '#FF6700');
-    // hover时，对应的下部菜单
-    $('#' + $that.attr('control')).show();
-    // 下部菜单的高度需要设定，缺省时0，无法显示
-    $('#menu_content_bg').css('border', '1px solid #D0D0D0')
-        .height(230);
-}, function() {
-    var $that = $(this);
-    // 复原颜色
-    $that.css('color', '#424242');
-    $('#' + $that.attr('control')).hide();
-    $('#menu_content_bg').height(0)
-        .css('border', '0px solid #D0D0D0');
 });
 
 // 3. 搜索框获得/失去焦点的显示控制
@@ -77,7 +95,6 @@ $('#find_but').hover(function() {
 // 5. 菜单栏的显示控制
 $('#banner_menu_wrap>li').hover(function() {
     var $that = $(this);
-    // alert('qq');
     $that.css('background', '#FF6700');
     $that.find('div.banner_menu_content').css('border', '1px solid #F0F0F0').show();
 }, function() {
@@ -88,6 +105,7 @@ $('#banner_menu_wrap>li').hover(function() {
 });
 
 // 6. 轮播显示控制
+
 $(function() {
     // 自动轮播
     var i = 0;
@@ -211,7 +229,7 @@ function groupBy(objArray, prop) {
     }, []);
 }
 
-
+let obj1 = null;
 $.ajax({
     url: 'http://10.31.162.52/JS_2002/xiaomi/php/alldata.php',
     dataType: 'json'
@@ -221,7 +239,7 @@ $.ajax({
     var result = groupBy(data, 'cat_one_id');
     console.log(result);
     // console.log(result['内衣配饰']);
-    let obj1 = result['手机相机'];
+     obj1 = result['手机相机'];
     let obj2 = result['海外购'];
     let obj3 = result['智能设备'];
 
@@ -281,72 +299,87 @@ $.ajax({
     });
 
 
-    
-// 8. 明星单品的左右滑动控制
+})
+
+
+   
+// 8. 小米闪购的左右滑动控制
 
 $(function() {
-    var currentPos = 0;
-    var maxPos = 15;
+    
 
+    let currentPos = 0;
+    //当前已有数据
+    let maxPos = 1;
+   
+    //每次移动的距离
     function makePosString(pos) {
         return (pos * 988) + 'px';
     }
-    var $swipper = $('.swiper-wrapper');
-    //左边
+    let $swipper = $('.swiper-wrapper');
+    //左边按钮
     $('#head_hot_goods_prave').click(function() {
+        var $that = $(this);
         currentPos--;
         // 动态添加数据
-        if (currentPos*(-1)  > maxPos-1) {
+        console.log(currentPos*(-1),maxPos-1);
+        if (currentPos*(-1)  >= maxPos-1) {
             maxPos++;
-            $swipper.width(maxPos * 988 + 48);
+            $swipper.width(maxPos * 988);
+
+            //渲染商品
             $.each(obj1,function(index,value){
-                // console.log(value); 
-                console.log(value);
+                // console.log(index); 
                 swiperitem.insertAdjacentHTML("beforeend", `
-                  
-                
                     <li>
                         <a><img src="${value.goods_small_logo}"></a>
                         <a>${value.goods_price}</a>
                         <a>${value.goods_name}</a>
                     </li>
-        
-              `)
-        
-            });
 
+                `)
+                //判断当数据全部展示完全，就禁用左边的按钮
+                let maxleft = parseInt($swipper.css("left"))*(-1);
+
+                // console.log(maxleft);
+                if(maxleft > 12000){
+                    // $that.off('click');
+                    $that.css({
+                        'pointer-events':'none',
+                        'background':'#fff'
+                    })
+                }
+            });
         }  
 
         $swipper.stop(true).animate({
             left: (makePosString(currentPos))
         }, 450);
+        });
+
+        //右边按钮
+        $('#head_hot_goods_next').click(function() {
+            // 设置左边按钮可点击
+          $('#head_hot_goods_prave').css({
+            'pointer-events':'auto',
+          })
+            currentPos++;
+            if (currentPos > 0) {
+                currentPos = 0;
+            }
+
+
+            $swipper.stop(true).animate({
+                left: makePosString(currentPos)
+            }, 450);
+        });
+
+        $('#head_hot_goods_change>span').hover(function() {
+            $(this).css('color', '#FF6700');
+        }, function() {
+            $(this).css('color', '#BEBEBE');
+        });
     });
-    //右边
-    $('#head_hot_goods_next').click(function() {
-        currentPos++;
-        if (currentPos > 0) {
-            currentPos = 0;
-        }
-
-        $swipper.stop(true).animate({
-            left: makePosString(currentPos)
-        }, 450);
-    });
-
-    $('#head_hot_goods_change>span').hover(function() {
-        $(this).css('color', '#FF6700');
-    }, function() {
-        $(this).css('color', '#BEBEBE');
-    });
-});
-
-
-
-
-})
-
-
-
 
 
 
@@ -417,4 +450,14 @@ function hehe(data) {
         minus.innerText = minu;
         seconds.innerText = sec;
     }, 1);
+})();
+
+// 回到顶部
+(function(){
+    let btn = $('.home-tool-bar a:last-child');
+    btn.on('click',function(){
+      $('html,body').animate({
+        scrollTop:0
+      },800)
+    });
 })();

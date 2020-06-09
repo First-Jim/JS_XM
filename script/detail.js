@@ -75,6 +75,7 @@
             // 计算mask距离小图容器的左边和上面的距离
             //ev.pageX === mouseX  原生js中
             let $leftValue = ev.pageX - $magnify_glass.offset().left - $mask.width() /2;
+            console.log(ev.pageX,$magnify_glass.offset().left,$mask.width() /2);
             let $topValue = ev.pageY - $magnify_glass.offset().top - $mask.height() /2;
             if($leftValue < 0){
                 $leftValue = 0;
@@ -180,4 +181,63 @@
         }
         alert('添加成功');
     });
+
+
+
+    //顶部悬浮
+    function suspended(){
+        //克隆一个盒子，并设置新的属性
+        let $clonebox  = $('.topNav-bar').clone(true,true).attr('id', 'NewBox');
+        // console.log($clonebox);
+        $(document.body).append($clonebox);
+        $clonebox.css({
+            'width':'100%',
+            'position': 'fixed',
+            'top': '-70px',
+            'margin':'auto'
+        });
+        $(window).on('scroll',function(){
+            let $top=$(window).scrollTop();
+            // $('title').html($top);
+            if($top>=200){
+                $('#NewBox').stop(true).animate({
+                    top:0
+                });
+            }else{
+                $('#NewBox').stop(true).animate({
+                    top:-70
+                })
+            }
+        });
+
+    }
+    suspended();
 }(jQuery);
+
+!(function($){
+    // .step加减数量
+    $('.quantity-add').on('click', function() {
+        let $count = $('#cart-item-quanlity').val();
+        $count++;
+        $('#cart-item-quanlity').val($count);
+    });
+    
+    
+    $('.quantity-down').on('click', function() {
+        let $count = $('#cart-item-quanlity').val();
+        $count--;
+        if ($count < 1) {
+            $count = 1;
+        }
+        $('#cart-item-quanlity').val($count);
+    });
+    
+    
+    $('#cart-item-quanlity').on('input', function() {
+        let $reg = /^\d+$/g; //只能输入数字
+        let $value = $(this).val();
+        if (!$reg.test($value)) { //不是数字
+            $(this).val(1);
+        }
+    }); 
+})(jQuery);
