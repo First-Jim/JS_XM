@@ -1,5 +1,21 @@
 !function($){
-    $('#topnav').load('../src/top.html');
+    $('#topnav').load('../src/top.html',function(){
+        //0.根据本地存储，显示用户信息
+        if (localStorage.getItem('username')) {
+            $('.login').css('visibility','hidden');
+            $('.topbar-info').css('visibility','visible');
+            $('.topbar-info .name').html(localStorage.getItem('username'));
+        }else{
+            $('.topbar-info').hide();
+        }
+    
+        $('.exit_login').on('click', function () {
+            $('.login').css('visibility','visible');
+            $('.topbar-info').css('visibility','hidden');
+            localStorage.removeItem('username');
+            header('location:http://10.31.162.52/JS_2002/xiaomi/src/index.html');
+        });
+    });
     //获取商品列表容器
     $goods = $('.floor_goods_wrap');
     $lis = $('.goods li');

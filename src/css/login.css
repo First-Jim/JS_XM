@@ -35,6 +35,12 @@ a {
     color: #f56600;
 }
 
+.login_wrap h3 {
+    font-weight: normal;
+    font-size: 18px;
+    height: 20px;
+    color: #f56600;
+}
 #container {
     position: absolute;
     width: 300px;
@@ -67,6 +73,7 @@ a {
 }
 
 .fm-button {
+    display: block;
     border: 1px solid #ff9000;
     border-radius: 5px;
     font-size: 14px;

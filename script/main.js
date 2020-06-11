@@ -1,10 +1,23 @@
 
 
 //0.加载公共文件
+$('#footer').load("../src/footer.html");
 
 $('#nav').load("../src/top.html",function(){
-    
-    // 2. 导航栏的显示控制
+        //0.根据本地存储，显示用户信息
+    if (localStorage.getItem('username')) {
+        $('.login').css('visibility','hidden');
+        $('.topbar-info').css('visibility','visible');
+        $('.topbar-info .name').html(localStorage.getItem('username'));
+    }
+
+    $('.exit_login').on('click', function () {
+        $('.login').css('visibility','visible');
+        $('.topbar-info').css('visibility','hidden');
+        localStorage.removeItem('username');
+        header('location:http://10.31.162.52/JS_2002/xiaomi/src/index.html');
+    });
+    // // 2. 导航栏的显示控制
     // $('.menu_li').hover(function() {
         
     //     // console.log
@@ -25,23 +38,6 @@ $('#nav').load("../src/top.html",function(){
     //         .css('border', '0px solid #D0D0D0');
     // });
 
-});
-$('#footer').load("../src/footer.html");
-$('#home').load("../src/home.html",function(){
-    //置顶
-    // let bool = false;
-    // $(this).find('.home-tool-bar a:last-child').on('click',function(){
-    //     bool = true;
-    //     console.log('a');
-    //     let ids = setInterval(function(){
-    //         if(!bool) return;
-    //         $(document).scrollTop() -= 100;
-    //         if($(document).scrollTop() ===0){
-    //             clearInterval(ids);
-    //             bool = false;
-    //         }
-    //     },16);
-    // })
 });
 
 // 1. 购物车部分的显示控制
@@ -461,3 +457,6 @@ function hehe(data) {
       },800)
     });
 })();
+
+
+

@@ -19,23 +19,25 @@
     <div class="section_box">
         <div class="login_wrap">
             <div id="container">
-                <form id="login-form" class="login-form">
+                <form action="" >
                     <h1>账号登录</h1>
+                    <h3 class="tips"></h3>
                     <div class="fm-field">
                         <div class="input-wrap-loginid ">
                             <i class="iconfont icon-icon"></i>
-                            <input name="login-id" type="text" class="fm-text" id="login-id" tabindex="1" aria-label="会员名/邮箱/手机号" placeholder="会员名/邮箱/手机号" autocapitalize="off">
+                            <input name="login-id" type="text" class="fm-text" id="loginName" tabindex="1" aria-label="会员名/邮箱/手机号" placeholder="会员名/邮箱/手机号" autocapitalize="off">
                         </div>
                     </div>
                     <div class="fm-field">
                         <div class="input-wrap-password">
                             <i class="iconfont icon-mima
                                 "></i>
-                            <input name="login-password" type="password" class="fm-text" id="login-password" tabindex="2" aria-label="请输入登录密码" placeholder="请输入登录密码" maxlength="40" autocapitalize="off">
+                            <input name="login-password" type="password" class="fm-text" id="loginPassword" tabindex="2" aria-label="请输入登录密码" placeholder="请输入登录密码" maxlength="40" autocapitalize="off">
                         </div>
                     </div>
                     <div class="fm-btn">
-                        <button type="submit" tabindex="3" class="fm-button fm-submit password-login">登录</button>
+                        <input type="button" value="登录" class="fm-button fm-submit password-login" >
+                        <!-- <button type="submit" tabindex="3" class="fm-button fm-submit password-login">登录</button> -->
                     </div>
                     <div class="registry_action"><a href="registry.html">免费注册</a></div>
                 </form>
@@ -48,7 +50,8 @@
         </ul>
     </div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
-    <script src="thirdplugins/jquery.cookie.js"></script>
+    <script src="../script/sha1.js"></script>
+    <script src="../script/login.js"></script>
 </body>
 
 </html>

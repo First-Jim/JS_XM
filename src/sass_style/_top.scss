@@ -80,6 +80,7 @@ $find-button-text:20px;
             cursor: pointer;
 
             #head_landing {
+                position: relative;
                 float: left;
                 margin-right: 15px;
 
@@ -89,6 +90,69 @@ $find-button-text:20px;
                     :hover {
                         text-decoration: none;
                         color: $whiteColor;
+                    }
+                }
+                .login{
+                    width: 100px;
+                    float: left;
+                    margin-left: 100px;
+                }
+                .topbar-info{
+                    position: absolute;
+                    left: -18px;
+                    top:0;
+                    .user {
+                        width: 110px;
+                        float: left;
+                        white-space: nowrap;
+                        overflow:hidden;
+                        text-overflow: ellipsis;
+                        a{
+                            color: #757575;
+                        }
+                        &:hover .user-menu {
+                            display: block;
+                            background-color: #fff;
+                            box-shadow: rgba(0, 0, 0, .4) 0 15px 25px;
+                        }
+                        &:hover .name {
+                            background: #fff;
+                            color: #ff6700;
+                        }
+
+                        
+                    }
+                    .name {
+                        padding: 0  18px;
+                        width: 80px;
+                        height: 40px;
+                        float: left;
+                        margin-right: 40px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        z-index: 5;
+                        color: #ff6700;
+                        position: relative;
+                        &::before{
+                            content: '欢迎：';
+                        }
+                    }
+                    .user-menu {
+                        position: absolute;
+                        float: left;
+                        left: 0px;
+                        top: 40px;
+                        z-index: 9999;
+                        margin: 0;
+                        padding: 7px 0;
+                        display: none;
+                        transition: 0.3s;
+                        a{
+                            display: inline-block;
+                            padding: 3px 30px;
+                            line-height: 2;
+                        }
                     }
                 }
             }

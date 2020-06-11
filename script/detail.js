@@ -1,5 +1,19 @@
 !function($){
-    $('#nav').load("../src/top.html");
+    $('#nav').load("../src/top.html",function(){
+            //0.根据本地存储，显示用户信息
+        if (localStorage.getItem('username')) {
+            $('.login').css('visibility','hidden');
+            $('.topbar-info').css('visibility','visible');
+            $('.topbar-info .name').html(localStorage.getItem('username'));
+        }
+    
+        $('.exit_login').on('click', function () {
+            $('.login').css('visibility','visible');
+            $('.topbar-info').css('visibility','hidden');
+            localStorage.removeItem('username');
+            header('location:http://10.31.162.52/JS_2002/xiaomi/src/index.html');
+        });
+    });
     $('#footer').load("../src/footer.html");
     //1.获取地址栏的id
     let $sid = location.search.substring(1).split('=')[1];
@@ -179,7 +193,13 @@
             arrnum.push($('#cart-item-quanlity').val());
             $.cookie('cookienum',arrnum,{expires:10,path:'/'});
         }
-        alert('添加成功');
+        //添加购物车后，返回信息
+        if (localStorage.getItem('username')) {
+            $('.buytips').css('visibility','visible');
+        }else{
+            $('.logintips').css('visibility','visible');
+
+        }
     });
 
 
@@ -220,6 +240,7 @@
         let $count = $('#cart-item-quanlity').val();
         $count++;
         $('#cart-item-quanlity').val($count);
+        $('.buytips').css('visibility','hidden');
     });
     
     
@@ -230,6 +251,8 @@
             $count = 1;
         }
         $('#cart-item-quanlity').val($count);
+        $('.buytips').css('visibility','hidden');
+
     });
     
     
@@ -239,5 +262,7 @@
         if (!$reg.test($value)) { //不是数字
             $(this).val(1);
         }
+        $('.buytips').css('visibility','hidden');
+
     }); 
 })(jQuery);

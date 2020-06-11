@@ -1,7 +1,5 @@
 <?php
 include "conn.php";
-
-
 //检测用户名是否重名
 if (isset($_POST['username'])) {
     $user = $_POST['username'];
@@ -21,8 +19,7 @@ if (isset($_POST['submit'])) {
     $repass = sha1($_POST['repass']);
     $email = $_POST['email'];
     $tel = $_POST['tel'];
-    var_dump($tel);
+    // var_dump($tel);
     $conn->query("insert admins values(null,'$username','$password','$repass','$email','$tel',NOW())");
-   echo 'ok';
-    header('location:http://localhost/JS_2002/xiaomi/src/login.html');
+    header('location:http://10.31.162.52/JS_2002/xiaomi/src/login.html');
 }

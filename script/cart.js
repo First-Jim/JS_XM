@@ -6,16 +6,22 @@
     const $cart_name = $('.cart-name input');
     const $cart_price = $('.cart-price');
     const $cart_img = $('.cart-img');
-    //商品的个数
-    const $cart_total = $('.cart-total');
-    //删除
-    const $cart_action = $('.cart-action');
     //商品种类 的数量
     const $cartTotalNum = $('.cartTotalNum');
     //选中的数量
     const $selTotalNam = $('.selTotalNam');
     // 总价
     const $totalPrice = $('.totalPrice em');
+
+    // 0.根据本地存储，显示用户信息
+    if (localStorage.getItem('username')) {
+        $('.topbar-info .name').html(localStorage.getItem('username'));
+    }
+
+    $('.exit_login').on('click', function () {
+        localStorage.removeItem('username');
+        header('location:http://10.31.162.52/JS_2002/xiaomi/src/index.html');
+    });
 
     // 1.获取所有的接口数据，根据cookie渲染对用的商品
     function showlist(sid,sum){
@@ -68,18 +74,19 @@
             //已选中的商品种类
             let selectedKinds= $('.item-box:visible').find('input:checked').size();
             // console.log(kinds);
-            $('.cartTotalNum').html(kinds)
-            $('.selTotalNam').html(selectedKinds);
+            $cartTotalNum.html(kinds)
+            $selTotalNam.html(selectedKinds);
             if ($(ele).parents('.cart_list').find('#allCK').prop('checked')) { //复选框勾选
                 //计算商品数量和单个商品总价格
-                $count += parseInt($(ele).find('.cart-num input').val());
+                $count += parseInt($(ele).find('#goods_nums').val());
+
                 $singlePrice += parseFloat($(ele).find('.singlePrice').html());
             }
         });
         
-        $('.cart-num').find('input').val($count);
+        $('#goods_nums').val($count);
         //总价
-        $('.totalPrice').find('em').text($singlePrice.toFixed(2));
+        $totalPrice.text($singlePrice.toFixed(2));
     }
     
     //4.全选
@@ -115,7 +122,7 @@
 
 
 $('.quantity-down').on('click', function() {
-    let $count = $(this).parents('.item-box').find('.cart-num').find('input').val();
+    let $count = $(this).parents('.item-box').find('#goods_nums').val();
     
     $count--;
     if ($count < 1) {

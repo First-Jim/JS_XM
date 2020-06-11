@@ -159,6 +159,7 @@ table {
   cursor: pointer;
 }
 .head_box #head_wrap #head_right #head_landing {
+  position: relative;
   float: left;
   margin-right: 15px;
 }
@@ -168,6 +169,67 @@ table {
 .head_box #head_wrap #head_right #head_landing a :hover {
   text-decoration: none;
   color: #fff;
+}
+.head_box #head_wrap #head_right #head_landing .login {
+  width: 100px;
+  float: left;
+  margin-left: 100px;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info {
+  position: absolute;
+  left: -18px;
+  top: 0;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .user {
+  width: 110px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .user a {
+  color: #757575;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .user:hover .user-menu {
+  display: block;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 15px 25px;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .user:hover .name {
+  background: #fff;
+  color: #ff6700;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .name {
+  padding: 0  18px;
+  width: 80px;
+  height: 40px;
+  float: left;
+  margin-right: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 5;
+  color: #ff6700;
+  position: relative;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .name::before {
+  content: '欢迎：';
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .user-menu {
+  position: absolute;
+  float: left;
+  left: 0px;
+  top: 40px;
+  z-index: 9999;
+  margin: 0;
+  padding: 7px 0;
+  display: none;
+  transition: 0.3s;
+}
+.head_box #head_wrap #head_right #head_landing .topbar-info .user-menu a {
+  display: inline-block;
+  padding: 3px 30px;
+  line-height: 2;
 }
 .head_box #head_wrap #head_right #head_car {
   float: right;
