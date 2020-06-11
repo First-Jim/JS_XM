@@ -101,7 +101,7 @@ $title-span-fontsize:25px;
         height: 100%;
         float: left;
         position: absolute;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(105,101,101,.6);;
         z-index: 600;
 
         .active {
@@ -184,13 +184,17 @@ $title-span-fontsize:25px;
             }
         }
     }
-
+//轮播图部分
     #big_banner_pic_wrap {
         width: $con;
         height: $banner-menu-content-height;
         overflow: hidden;
         position: relative;
-
+        .active{
+            background: #fff;
+            cursor: pointer;
+            border-color: rgba(0, 0, 0, .4);
+        }
         ol {
             width: 300px;
             height: 20px;
@@ -224,7 +228,7 @@ $title-span-fontsize:25px;
         }
 
         #big_banner_pic {
-            width: 6130px;
+            width: $con;
             height: $banner-menu-content-height;
             position: absolute;
             float: left;
@@ -234,7 +238,11 @@ $title-span-fontsize:25px;
                 height: $banner-menu-content-height;
                 float: left;
                 cursor: pointer;
-
+                img{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
             }
         }
     }
@@ -251,6 +259,9 @@ $title-span-fontsize:25px;
         div {
             display: block;
             transition: all 3s;
+            background: $change-bgcolor;
+            cursor: pointer;
+            color: $mi-logo-bg;
             -webkit-transition: all .3s;
             -moz-transition: all .3s;
             -ms-transition: all .3s;
@@ -324,11 +335,17 @@ $title-span-fontsize:25px;
                     text-align: center;
                     margin: 0 auto;
                     cursor: pointer;
-                    margin-top: 5px;
+                    margin-top: 15px;
 
 
                     p {
                         line-height: 40px;
+                        img{
+                            display: block;
+                            width: 24px;
+                            height: 24px;
+                            margin: 0 auto 4px;
+                        }
                     }
                 }
             }

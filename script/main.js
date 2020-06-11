@@ -103,60 +103,99 @@ $('#banner_menu_wrap>li').hover(function() {
 // 6. 轮播显示控制
 
 $(function() {
-    // 自动轮播
-    var i = 0;
-    var $big_banner_pic = $('#big_banner_pic');
-    var picCount = $big_banner_pic.find('li').length;
+    // 1.获取元素
+    const $banner = $("#big_banner_pic_wrap");
+    const $change_wrap = $("#big_banner_change_wrap");
+    const $ulPic = $("#big_banner_pic")
+    const $liPic = $("#big_banner_pic_wrap ul").children();
+    const $liBtn = $("#big_banner_pic_wrap ol").children();
+    const $leftArrow = $("#big_banner_change_prev");
+    const $rightArrow = $("#big_banner_change_next");
+    let $index = 0;
+    let $timer = null;
 
-    function pic_change() {
-        var img_i = i * (-1226) + 'px';
+     // 克隆第一个图片加在最后，达到无缝轮播
+     $cloneLi = $liPic.first().clone(true, true);
+    // 获取第一张图片的宽度
+    $liPicWidth = $liPic.eq(0).width();
+    // console.log($liPicWidth);
+    $ulPic.append($cloneLi).css({
+        // 获取整个图片容器ul的宽度
+        width: $ulPic.children().length * $liPicWidth
+    });
+    console.log($ulPic.width());//4500 
 
-        $big_banner_pic.stop(true).animate({ opacity: '0.2' }, 150, function() {
-            $big_banner_pic.css('left', img_i);
-            $big_banner_pic.stop(true).animate({ opacity: '1' }, 150);
+
+    //2.点击下面切换按钮，求出当前位置索引
+    $liBtn.on('click', function() {
+        // 这里的-1是为了后面index++时下标从0开始
+        $index = $(this).index() -1;
+        picPos();
+    });
+    //3.显示左右按钮
+    //当鼠标移入图片区域，清除定时器,移除时，开启定时器
+    $change_wrap.hover(function() {
+        console.log($banner.width());
+        $leftArrow.show();
+        $rightArrow.show();
+        clearInterval($timer);
+    }, function() {
+        $leftArrow.hide();
+        $rightArrow.hide();
+        $timer = setInterval(() => {
+            picPos();
+        }, 3000)
+    });
+
+    //4.切换左右按钮
+    //左箭头
+    $rightArrow.on('click', function() {
+        picPos();
+    });
+
+    // 右箭头
+    $leftArrow.on('click', function() {
+        $index -= 2;
+        picPos();
+    });
+    //封装一个左右点击
+    function picPos() {
+        $index++;
+        // 点击的是右箭头
+        if ($index === $liBtn.length + 1) {
+            $ulPic.css({
+                left: 0
+            });
+            $index = 1;
+        }
+        // 点击的是左箭头
+        if ($index === -1) {
+            $ulPic.css({
+                left: -$liBtn.length * $liPicWidth
+            });
+
+            $index = $liBtn.length - 1;
+        }
+        // 5.将图片的切换和小圆点的背景切换同步
+        //给小圆点添加样式
+        if ($index === $liBtn.length) {
+            console.log($liBtn.eq(0));
+            $liBtn.eq(0).addClass('active').siblings('ol li').removeClass('active');
+        } else {
+            $liBtn.eq($index).addClass('active').siblings('ol li').removeClass('active');
+        }
+        //点击下面的小圆点
+        $ulPic.stop(true).animate({
+            left: -$index * $liPicWidth
         });
     }
 
-    function loop_i() {
-        i += 1;
-        //        i = i % picCount;
-        if (i >= picCount) {
-            i = 0;
-        }
 
-        pic_change();
-    }
+    // 6.自动轮播
+    $timer = setInterval(() => {
+        picPos();
+    }, 2000)
 
-    var change_self_time = setInterval(loop_i, 2500);
-
-    // hover，手动，停止轮播
-    var $big_banner_change_wrap = $('#big_banner_change_wrap');
-    $big_banner_change_wrap.hover(function() {
-        clearInterval(change_self_time);
-        $big_banner_change_wrap.find('div').show();
-    }, function() {
-        change_self_time = setInterval(loop_i, 2500);
-        $big_banner_change_wrap.find('div').hide();
-    });
-
-    // 相应点击
-    $('#big_banner_change_prev').click(function() {
-        i += 1;
-        if (i >= picCount) {
-            i = 0;
-        }
-
-        pic_change();
-    });
-
-    $('#big_banner_change_next').click(function() {
-        i -= 1;
-        if (i <= 0) {
-            i = picCount - 1;
-        }
-
-        pic_change();
-    });
 });
 
 // 7. 明星单品显示控制
@@ -326,9 +365,9 @@ $(function() {
             //渲染商品
             $.each(obj1,function(index,value){
                 // console.log(index); 
-                swiperitem.insertAdjacentHTML("beforeend", `
+                swiperitem.insertAdjacentHTML("afterbegin", `
                     <li>
-                        <a><img src="${value.goods_small_logo}"></a>
+                        <a><img src="${value.goods_small_logo}" ></a>
                         <a>${value.goods_price}</a>
                         <a>${value.goods_name}</a>
                     </li>
@@ -346,6 +385,11 @@ $(function() {
                     })
                 }
             });
+            // //添加懒加载
+            // $(function () {
+            //     $("img.lazy").lazyload({ effect: "fadeIn" });
+            // });   
+
         }  
 
         $swipper.stop(true).animate({
